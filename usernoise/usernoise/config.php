@@ -3,7 +3,7 @@ $config = array();
 // It is recommended to stick to default Gmail configuration.
 // Just put your gmail account address and password to the fields below - and it will work in 99%.
 // Don't forget to log into Gmail from your browser and confirm an authentication attempt!
-$config['email.to'] = 'karev.n@gmail.com'; //Email address you want notifications to be sent to.
+$config['email.to'] = 'julieponraj@gmail.com'; //Email address you want notifications to be sent to.
 $config['email.smtp.password'] = 'password'; // Your email password.
 
 // You want these nitty gritty delivery options? We got them.
