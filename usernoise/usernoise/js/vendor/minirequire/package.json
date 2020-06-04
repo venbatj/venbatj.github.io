@@ -1,0 +1,11 @@
+{
+  "name": "minirequire",
+  "version": "1.0.0",
+  "description": "Minimalistic Require.js replacement",
+  "main": "minirequire.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nikolay Karev",
+  "license": "MIT"
+}
