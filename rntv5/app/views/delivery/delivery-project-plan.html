@@ -1,0 +1,66 @@
+<div class="ui-page delivery-project-plan">
+    <div class="portlet light">
+        <div class="portlet-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <button ng-click="BackManagement()" class="btn blue fa fa-reply-all"> Back</button>
+                    <h3>Delivery Project Plan RNT</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form name="FormDeliveryProjectPlan" class="horizontal-form" method="post">
+        <div class="portlet light mb-3">
+            <div class="portlet-body">
+                <div class="form-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label class="fld-required"> Customer Quote</label>
+                                    <div class="input-group">
+                                        <input type="text" ng-model="Collaterals.ContractTemplate" name="ContractTemplate" class="form-control" > 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <div class="form-group">
+                                <label>Customer Management</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" ng-model="Collaterals.Address"> 
+                                    </div>
+                                </div>
+                            </div>     
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <div class="form-group">
+                                <label>Linen Supplier </label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" ng-model="Collaterals.State"> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <div class="form-group">
+                                <label>Laundry Vendor</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" ng-model="Collaterals.State"> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <div class="form-group">
+                                <label>Platform enhancement</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" ng-model="Collaterals.State"> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: right;" class="action-group">
+                            <button type="button" ng-click="saveLinenDetail(FormCollaterals.$valid)" class="btn blue" ng-disabled="FormCollaterals.$invalid">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

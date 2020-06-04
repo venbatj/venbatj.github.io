@@ -1,0 +1,141 @@
+<form name="FrmChangeLaundry" class="horizontal-form" method="post" ng-submit="saveChangeLaundry(FrmChangeLaundry)">
+    <div class="portlet light mb-3">
+        <div class="form-body">
+            <div class="row">
+                <h3>
+                    <button ng-click="BackLaundryIndexPage()" class="btn blue fa fa-reply-all"> Back</button>
+                    <strong>Change Laundry</strong></h3>
+            </div>
+        </div>
+    </div>
+    <div class="portlet light mb-3">
+        <div class="portlet-title">
+            <div class="caption">
+                <span class="caption-subject bold">Change Laundry</span>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <div class="form-body">
+                <div class="row">
+                    <div  class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="form-group">
+                            <label>Select Customer</label>
+                            <div class="input-group">
+                                <select id="change-customer" name="Customer" class="form-control select2"
+                                ng-model="ChangeLaundry.CustomerName" ng-change="onCustChange(ChangeLaundry.CustomerName)"> 
+                                <option value="{{CD.ID}}" ng-repeat="CD in CustomerList">{{CD.CustomerName}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="form-group">
+                            <label>Select Customer Location</label>
+                            <div class="input-group">
+                                <select id="change-location" name="CustomerLocationID" class="form-control select2"
+                                ng-model="ChangeLaundry.CustomerLocationID"ng-change="onCCLocationChange(ChangeLaundry.CustomerLocationID)" required> 
+                                    <option value="{{CL.ID}}" ng-repeat="CL in LocationList">{{CL.LocationName}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>  
+                    <div  class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="form-group">
+                            <label>Select Laundry</label>
+                            <div class="input-group">
+                                <select id="change-laundry" name="LaundryName" class="form-control select2"
+                                ng-model="ChangeLaundry.LaundryName" ng-change="onLaundryChange(ChangeLaundry.LaundryName)"> 
+                                <option value="{{L.ID}}" ng-repeat="L in LaundryList">{{L.LaundryName}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="form-group">
+                            <label>Select Laundry Location</label>
+                            <div class="input-group">
+                                <select id="change-laundry-location" name="LaundryLocationID" class="form-control select2"
+                                ng-model="ChangeLaundry.LaundryLocationID"ng-change="onchangeLaundryChange(ChangeLaundry.LaundryLocationID)" required> 
+                                    <option value="{{LL.ID}}" ng-repeat="LL in AssignLocationList">{{LL.LocationName}}</option>
+                                </select>
+                                <!-- <input type="text" class="form-control" ng-model="ChangeLaundry.LaundryLocationID" name="LaundryLocationID"> -->
+                            </div>
+                        </div>
+                    </div>  
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="form-group">
+                            <label>Reason For Change</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" ng-model="ChangeLaundry.ReasonForChange" name="ReasonForChange">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="form-group">
+                            <label>Start Date</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="change-start-date" ng-model="ChangeLaundry.StartDate" ng-init="InputMask()" name="StartDate">
+                                <span class="input-group-addon" id="change-start-date" >
+                                    <span class="fa fa-calendar" id="changestart-date"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="form-group">
+                            <label>End Date</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="change-end-date"  ng-model="ChangeLaundry.EndDate" ng-init="InputMask()" name="EndDate">
+                                <span class="input-group-addon" id="change-end-date" >
+                                    <span class="fa fa-calendar" id="changeend-date"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label>&nbsp;</label>
+                            <div class="action-group">
+                                <button type="submit" class="btn blue fa fa-tasks"> Assign </button>
+                                <button type="button" ng-click="changeCancel()" class="btn blue fa fa-close"> Cancel </button>                                                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</form>
+<div class="portlet light mb-3">
+        <div class="portlet-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="assign-laundry-data-table">
+                    <thead>
+                        <tr>
+                            <th> S.No </th>
+                            <th> Laundry </th>
+                            <th> Laundry Location </th>
+                            <th> Customer </th>
+                            <th> Customer Location </th>
+                            <th> Start Date </th>
+                            <th> End Date </th>
+                            <!-- <th> Action </th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="Data in AssignData" ng-show="childData"> 
+                            <td >{{$index + 1}}</td>
+                            <td >{{Data.LaundryName}}</td>
+                            <td>{{Data.LaundryLocationID}}</td>
+                            <td >{{Data.CustomerName}}</td>
+                            <td >{{Data.CustomerLocationID}}</td>
+                            <td>{{Data.StartDate}}</td>
+                            <td>{{Data.EndDate}}</td>
+                            <!-- <td><i title="Remove" ng-click="removeData($index,Data.ID)" class="delete-icon fa fa-trash font-red-thunderbird"></i>
+                                <a><i title="Edit" ng-click="editData($index,Data.ID)" class="edit-icon fa fa-edit font-green-jungle"></i></a></td>                                     -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>	
+        </div>
+    </div>

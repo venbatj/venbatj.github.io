@@ -1,0 +1,64 @@
+<div class="ui-page">
+    <form name="FrmCustomer" role="form" novalidate>
+        <div class="portlet light mb-3">
+            <div class="portlet-body">
+                <div class="row" >
+                    <div class="col-md-12">
+                        <h3><strong>Reports</strong></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="portlet light mb-3" id="customer-index">
+            <div class="portlet-body">
+                <div class="form-body">
+                    <div class="row" id="rowinventory">
+                        <div class="col-md-4 newcustomer" id="prospecty">
+                            <h4 id="head"><b>Sales Report</b></h4><br/>
+                            <center><label ng-click="salesReportPage()"><b><a><u id="link">Sales Report</u></a></b> </label></center>
+                        </div>
+                        <div class="col-md-4 newcustomer" id="newcust">
+                            <h4 id="head"><b>Inventory Report</b></h4><br/>
+                            <center><label ng-click="inventoryReportPage()"><b><a><u id="link">Inventory Report</u></a></b> </label></center>
+                        </div>
+                        <div class="col-md-4 newcustomer" id="exist">
+                            <h4 id="head"><b>Billing Report</b></h4><br/>
+                            <center><label ng-click="billingReportPage()"><b><a><u id="link">Billing Report</u></a></b> </label></center>
+                        </div>
+                        <div class="col-md-4 newcustomer">
+                            <h4 id="head"><b>Collection Report</b></h4><br/>
+                            <center><label ng-click="collectionReportPage()"><b><a><u id="link">Collection Report</u></a></b> </label></center>
+                        </div>
+                        <div class="col-md-4 newcustomer" id="excel">
+                            <h4 id="head"><b>Delivery Report</b></h4><br/>
+                            <center><label ng-click="deliveryReportPage()"><b><a><u id="link">Delivery Report</u></a></b> </label></center>
+                        </div>
+                        <div class="col-md-4 newcustomer" id="empty">
+                            <h4 id="head"><b>Sales Trouble Ticket</b></h4><br/>
+                            <center><label ng-click="salesTroubleTicketPage()"><b><a><u id="link">Sales Trouble Ticket</u></a></b> </label></center>
+                        </div>
+                    </div>
+                    <div class="row" id="rowinventory">
+                        <div class="col-md-4 newcustomer" id="prospecty">
+                            <h4 id="head"><b>Customer Feedback</b></h4><br/>
+                            <center><label ng-click="customerFeedbackPage()"><b><a><u id="link">Customer Feedback</u></a></b> </label></center>
+                        </div>
+                        <div class="col-md-4 newcustomer" id="newcust">
+                            <h4 id="head"><b>Customer Trouble Ticket</b></h4><br>
+                            <center><label ng-click="customerTroubleTicketPage()"><b><a><u id="link">Customer Trouble Ticket</u></a></b> </label></center>
+                        </div>
+                        <div class="col-md-4 newcustomer" id="exist">
+                            <h4 id="head"><b>Laundry Vendor Report</b></h4><br/>
+                            <center><label ng-click="laundryVendorReportPage()"><b><a><u id="link">Laundry Vendor Report</u></a></b> </label></center>
+                        </div>
+                        <div class="col-md-4 newcustomer">
+                            <h4 id="head"><b>Linen Supplier Report</b></h4><br />
+                            <center><label ng-click="linenSupplierReportPage()"><b><a><u id="link">Linen Supplier Report</u></a></b> </label></center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>

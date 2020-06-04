@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, maximum-scale=1">
+    <title>Invite User</title>
+</head>
+<body>
+<table>    
+	<tbody>
+		<tr>
+			<td>
+				<label>Dear {{Name}},</label><br/>
+					<p>Welcome to Rent a Towel's Digital Platform.</p>
+					<p>We have created an account for you to manage the linen operations.</p>
+					<p>Following is your credentials.</p>
+					<p>Please feel free to change your credentials after the first login.</p><br/>
+				<label>Login: {{UserName}}</label><br>
+				<a href="{{ActivationCode}}">Activate</a><br/><br/><br/>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label>Sincerely</label><br/>
+				<label>Admin Team</label><br/>
+				<label>Rent a Towel</label>
+			</td>
+		</tr>
+	</tbody>	
+</table>
+</body>
+</html>

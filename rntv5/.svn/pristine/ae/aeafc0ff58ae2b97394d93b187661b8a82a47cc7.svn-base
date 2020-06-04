@@ -1,0 +1,45 @@
+<div class="ui-page compact">
+    <div class="portlet light mb-3">
+        <div class="portlet-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="top-control-bar">
+                            <h3 style="text-align: left;">
+                        <button type="button" ng-click="backToManagmentPage()" class="btn green fa fa-reply-all"> Back</button>
+                        <strong>Import Laundry</strong></h3>
+                        <div style="text-align: right;" class="action-group">
+                            <button type="button" ng-init="importInit()" ng-click="selectFile()" class="btn green fa fa-arrow-circle-down"> Import</button>
+                        <a target="_blank" class="btn blue fa fa-download" href="../data-storage/templates/LaundryImport.xls">
+                         Download Template</a>
+
+                            <div class="input-group file-group hide" id="import-laundry-ctrl" ng-init="initTradeLicense()">
+                                <div>
+                                    <input type="file" class="file-pick" name="TradeLicense" accept=".xls"/>
+                                </div>
+                                <input type="text" class="form-control" readonly/>
+                                <div class="file-controls">
+                                    <i title="Select" class="fa fa-folder-open font-blue-ebonyclay up-btn"></i>
+                                    <i title="Change" class="fa fa-edit font-green-jungle ch-btn"></i>
+                                    <i title="Remove" class="fa fa-trash font-red-mint rm-btn"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portlet light">
+        <div class="portlet-body">
+            <table id="import-laundry-data-table" class="table table-striped table-bordered table-hover dt-responsive" width="100%">
+                <thead>
+                    <tr>
+                        <td>Imported At</td>
+                        <td>Source File</td>
+                        <td class="action-column">Report</td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>  
+</div>

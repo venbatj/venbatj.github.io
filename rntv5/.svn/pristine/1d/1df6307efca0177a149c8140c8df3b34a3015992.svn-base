@@ -1,0 +1,34 @@
+<div class="ui-page compact">
+    <div class="portlet light mb-3">
+        <div class="portlet-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="top-control-bar">
+                        <h3 style="text-align: left;">
+                            <button type="button" ng-click="backToManagmentPage()" class="btn blue"><i class="fa fa-reply-all"> Back</i></button>
+                            <strong>Quote Generation</strong>
+                        </h3>
+                        <div style="text-align: right;" class="action-group">
+                            <button type="button" ng-click="openAddPage()" class="btn blue"><i class="fa fa-user-plus"> Add</i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portlet light">
+        <div class="portlet-body">
+            <table id="quote-generation-management-data-table" class="table table-striped table-bordered table-hover dt-responsive" width="100%">
+                <thead>
+                    <tr>
+                        <td>Customer Name</td>
+                        <td>Customer Type</td>
+                        <td>Quote Type</td>
+                        <td>Download Link</td>
+                        <td class="action-column">View</td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>  
+</div>

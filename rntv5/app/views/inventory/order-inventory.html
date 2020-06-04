@@ -1,0 +1,329 @@
+<div class="ui-page">
+    <form name="OrderInventory" role="form" novalidate>
+        <div class="portlet light mb-3">
+            <div class="portlet-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 style="text-align: left;">
+							<button type="button" ng-click="backToManagmentPage()" class="btn green">Back</button>
+                        <strong>Order Inventory</strong></h3>
+                        <h3 style="text-align: right;">
+							<button type="button" ng-click="backToReportPage()" class="btn green">Back to Report</button></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="portlet light mb-3">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject bold">Inventory Details </span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="form-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label class="fld-required">Order Type </label>
+                                <div class="input-group">
+                                    <select id="order-type" name="OrderTypeID" class="form-control select2" required
+                                    ng-model="Inventory.OrderTypeID" ng-change="onOrderTypeChange(OIT.OrderTypeID);CheckTypeValue(Inventory.OrderTypeID);"> 
+                                        <option value="{{OIT.ID}}" ng-repeat="OIT in OrderTypeList">{{OIT.OrderType}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label class="fld-required">Customer </label>
+                                <div class="input-group">
+                                    <select id="customer" name="CustomerID" class="form-control select2" required
+                                    ng-model="Inventory.CustomerID" ng-change="onCustomerChange(Ct.CustomerID)"> 
+                                        <option value="{{Ct.ID}}" ng-repeat="Ct in CustomerList">{{Ct.CustomerName}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label>Warehouse</label>
+                                <div class="input-group">
+                                    <select id="inventory-warehouse" name="WarehouseID" class="form-control select2"
+                                    ng-model="Inventory.WarehouseID" ng-change="onCustomerChange(Inventory.WarehouseID, FlagName)"> 
+                                    <option value="{{IW.ID}}" ng-repeat="IW in InventoryWarehouseList">{{IW.WarehouseName}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label class="fld-required">Ordering Reason </label>
+                                <div class="input-group">
+                                    <select id="ordering-reason" name="OrderingReasonID" class="form-control select2" required
+                                    ng-model="Inventory.OrderingReasonID" ng-change="onOrderingReasonChange(OIR.OrderingReasonID)"> 
+                                        <option value="{{OIR.ID}}" ng-repeat="OIR in OrderingReasonList">{{OIR.OrderingReason}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class ="row"  >
+           <div  class="col-md-12" ng-if="CustomerEnable">
+                <div class="portlet light mb-3">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <span class="caption-subject bold">{{OrderType}}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-body">
+                        <div class ="row">
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <div class="form-group">
+                                    <label class="fld-required">Category</label>
+                                    <div class="input-group">
+                                        <select id="category" name="Category" class="form-control select2" 
+                                        ng-model="SubInventory.CategoryID" ng-change="onCategoryChange(SubInventory.CategoryID)" > 
+                                            <option value="{{Category.ID}}" ng-repeat="Category in CategoryList">{{Category.CategoryName}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <div class="form-group">
+                                    <label class="fld-required">Product</label>
+                                    <div class="input-group">
+                                        <select id="product" name="Product" class="form-control select2" 
+                                        ng-model="SubInventory.ProductID" ng-change="onProductChange(SubInventory.ProductID)" / > 
+                                            <option value="{{Product.ID}}" ng-repeat="Product in ProductList">{{Product.ProductName}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <div class="form-group">
+                                    <label class="fld-required">Variant</label>
+                                    <div class="input-group">
+                                        <select id="variant" name="Variant" class="form-control select2" 
+                                        ng-model="SubInventory.VariantID" ng-change="onVariantChange(SubInventory.VariantID)" / > 
+                                            <option value="{{Variant.VariantID}}" ng-repeat="Variant in VariantList">{{Variant.VariantName}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <div class="form-group" ng-class="{'has-error' : OrderInventory.QtyByCustomer.$invalid && OrderInventory.QtyByCustomer.$touched}">
+                                    <label class="fld-required">Qty by Customer</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" ng-keypress="filterValue($event)" name="QtyByCustomer" ng-model="SubInventory.QtyByCustomer" ng-keyup="Calculate(QtyToBeOrdered)" >
+                                        <p ng-show="OrderInventory.QtyByCustomer.$invalid && OrderInventory.QtyByCustomer.$touched" class="help-block">This field is Required.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <div class="form-group" ng-class="{'has-error' : OrderInventory.QtyByWarehouse.$invalid && OrderInventory.QtyByWarehouse.$touched}">
+                                    <label class="fld-required">Qty by Warehouse</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" ng-paste="paste($event)" name="QtyByWarehouse" ng-keypress="filterValue($event)" ng-model="SubInventory.QtyByWarehouse" >
+                                        <p ng-show="OrderInventory.QtyByWarehouse.$invalid && OrderInventory.QtyByWarehouse.$touched" class="help-block">This field is Required.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <div class="form-group" ng-class="{'has-error' : OrderInventory.QtyUsedFromWarehouse.$invalid && OrderInventory.QtyUsedFromWarehouse.$touched}">
+                                    <label class="fld-required">Qty that can be used from Warehouse</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" ng-keypress="filterValue($event)" name="QtyUsedFromWarehouse" ng-model="SubInventory.QtyUsedFromWarehouse" ng-keyup="Calculate(QtyToBeOrdered)" >
+                                        <p ng-show="OrderInventory.QtyUsedFromWarehouse.$invalid && OrderInventory.QtyUsedFromWarehouse.$touched" class="help-block">This field is Required.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <div class="form-group" ng-class="{'has-error' : OrderInventory.QtyToBeOrdered.$invalid && OrderInventory.QtyToBeOrdered.$touched}">
+                                    <label class="fld-required">Qty to be Ordered</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="QtyToBeOrdered" ng-model="SubInventory.QtyToBeOrdered" ng-disabled="disableorder" ng-keyup="Calculate(QtyToBeOrdered)" >
+                                        <p ng-show="OrderInventory.QtyToBeOrdered.$invalid && OrderInventory.QtyToBeOrdered.$touched" class="help-block">This field is Required.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <div class="form-group" >      
+                                    <label class="fld-required">RFID Tag</label>
+                                    <div class="mt-radio-inline">
+                                        <label class="mt-radio">
+                                            <input type="radio" name="RFID" value="Y" ng-model="SubInventory.RFIDTag"  > Yes
+                                            <span></span>
+                                        </label>
+                                        <label class="mt-radio">
+                                            <input type="radio" name="RFID" value="N" ng-model="SubInventory.RFIDTag" > No
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label>&nbsp;</label>
+                                    <div class="action-group">
+                                        <button type="button" ng-click="addData()" class="btn blue" ng-disabled="OrderInventory.$invalid">Add Data</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>					
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class ="row"  >
+           <div  class="col-md-12" ng-if="WarehouseEnable">
+                <div class="portlet light mb-3">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <span class="caption-subject bold">{{OrderType}}</span>
+                        </div>				
+                    </div>
+                    <div class="portlet-title">
+                        <div class="form-body">
+                            <div class ="row">
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label class="fld-required">Category</label>
+                                        <div class="input-group">
+                                            <select id="category" name="Category" class="form-control select2" 
+                                            ng-model="SubInventory.CategoryID" ng-change="onCategoryChange(SubInventory.CategoryID)" > 
+                                                <option value="{{Category.ID}}" ng-repeat="Category in CategoryList">{{Category.CategoryName}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label class="fld-required">Product</label>
+                                        <div class="input-group">
+                                            <select id="product" name="Product" class="form-control select2" 
+                                            ng-model="SubInventory.ProductID" ng-change="onProductChange(SubInventory.ProductID)" > 
+                                                <option value="{{Product.ID}}" ng-repeat="Product in ProductList">{{Product.ProductName}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label class="fld-required">Variant</label>
+                                            <div class="input-group">
+                                                <select id="variant" name="Variant" class="form-control select2" ng-model="SubInventory.VariantID" 
+                                                ng-change="onVariantChange(SubInventory.ProductID, SubInventory.VariantID)" > 
+                                                <option value="{{Variant.VariantID}}" ng-repeat="Variant in VariantList">{{Variant.VariantName}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <div class="form-group" ng-class="{'has-error' : OrderInventory.QtyForWarehouse.$invalid && OrderInventory.QtyForWarehouse.$touched}">
+                                        <label class="fld-required">Qty for Warehouse</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" name="QtyForWarehouse" ng-keypress="filterValue($event)" ng-model="SubInventory.QtyForWarehouse" >
+                                            <p ng-show="OrderInventory.QtyForWarehouse.$invalid && OrderInventory.QtyForWarehouse.$touched" class="help-block">This field is Required.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-12">
+                                    <div class="form-group">      
+                                        <label class="fld-required">RFID Tag</label>
+                                        <div class="mt-radio-inline">
+                                            <label class="mt-radio">
+                                                <input type="radio" name="RFIDTag" value="Y" ng-model="SubInventory.RFIDTag"> Yes
+                                                <span></span>
+                                            </label>
+                                            <label class="mt-radio">
+                                                <input type="radio" name="RFIDTag" value="N" ng-model="SubInventory.RFIDTag"> No
+                                                    <span></span>
+                                            </label>
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <div class="form-group">
+                                                <label>&nbsp;</label>
+                                                <div class="action-group">
+                                                    <button type="button" ng-click="addData()" class="btn blue" ng-disabled="OrderInventory.$invalid">Add Data</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                </div>					
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>		
+        </div>	
+		<div class="portlet light mb-3">
+			<div class="portlet-body">
+				<div class="table-responsive">
+					<table class="table table-bordered" id="order-inventory-table">
+						<thead>
+							<tr>
+								<th> S.No </th>
+								<th> Category </th>
+								<th> Product </th>
+								<th> Variant </th>
+								<th ng-show="ForWarehouse"> Qty For Warehouse </th>
+								<th ng-show="Foracustomer"> Qty By Customer </th>
+								<th ng-show="Foracustomer"> Qty By Warehouse </th>
+								<th ng-show="Foracustomer"> Qty Used From Warehouse </th>
+								<th ng-show="Foracustomer"> Qty To Be Ordered</th>
+								<th> RFID Tag</th>
+                                <th ng-show="Order"> Inventory Order </th>
+                                <th>Remove</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="Data in InventoryData"> 
+                                <td >{{$index + 1}}</td>
+                                <td >{{Data.CategoryID}}</td>
+								<td >{{Data.ProductID}}</td>
+								<td >{{Data.VariantID}}</td>
+								<td ng-show="ForWarehouse">{{Data.QtyForWarehouse}}</td>
+								<td ng-show="Foracustomer">{{Data.QtyByCustomer}}</td>
+								<td ng-show="Foracustomer">{{Data.QtyByWarehouse}}</td>
+								<td ng-show="Foracustomer">{{Data.QtyUsedFromWarehouse}}</td>
+								<td ng-show="Foracustomer">{{Data.QtyToBeOrdered}}</td>
+								<td>{{Data.RFIDTag}}</td>
+								<td ng-show="Order">{{Inventory.InventoryOrderID}}</td>
+								<td><i title="Remove" ng-click="removeData(Data.ID)" class="delete-icon fa fa-trash font-red-thunderbird"></i></td>
+							</tr>
+						</tbody>
+						<!-- <tfoot>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tfoot> -->
+					</table>
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label>&nbsp;</label>
+                            <div class="action-group">
+                                <!-- <button type="button" ng-click="saveInventory(OrderInventory.$valid || FrmSubInventor.$valid)" class="btn blue" ng-disabled="OrderInventory.$invalid || FrmSubInventor.$invalid">Save</button> -->
+                                <button type="button" ng-click="saveInventory(OrderInventory.$valid)" class="btn blue" ng-disabled="OrderInventory.$invalid">Save</button>
+                                <button type="button" ng-click="cancelSubInvantory()" class="btn blue">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+				</div>	
+			</div>
+		</div>
+
+    </form>
+</div>

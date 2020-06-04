@@ -1,0 +1,187 @@
+<div class="ui-page -page">
+    <div class="portlet light mb-3">
+        <div class="portlet-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 style="text-align: left;">
+                        <button type="button" ng-click="backToManagmentPage()" class="btn blue fa fa-reply-all">Back</button>
+                    <strong>Order RFID</strong></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portlet light mb-3">
+        <div class="portlet-title">
+            <div class="caption">
+                <span class="caption-subject bold">RFID Details</span>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <div class="form-body">
+                <div class="row">
+                    <form name="PrntFrm">
+                        <div class="col-xs-12 col-sm-6 col-md-3" ng-show="RFIDOrderType">
+                            <div class="form-group">
+                                <label>Order Type </label>
+                                <div class="input-group">
+                                    <select id="rfid-order-type" name="OrderTypeID" class="form-control select2"
+                                    ng-model="RFID.OrderTypeID" ng-change="onOrderTypeChange(RFID.OrderTypeID, FlagName)"> 
+                                    <option value="{{Rot.ID}}" ng-repeat="Rot in OrderTypeList">{{Rot.OrderType}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3" ng-show="Customer">
+                            <div class="form-group">
+                                <label class="fld-required">Customer Name</label>
+                                <div class="input-group">
+                                    <select id="customer" name="CustomerID" class="form-control select2" required
+                                    ng-model="RFID.CustomerID" ng-change="onCustomerChange(RFID.CustomerID)"> 
+                                        <option value="{{Ct.ID}}" ng-repeat="Ct in CustomerList">{{Ct.CustomerName}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3" ng-show="Warehouse">
+                            <div class="form-group">
+                                <label class="fld-required">Warehouse Name</label>
+                                <div class="input-group">
+                                    <select id="warehouse" name="WarehouseID" class="form-control select2"
+                                    ng-model="RFID.WarehouseID" ng-change="onWarehouseChange(RFID.WarehouseID)"> 
+                                    <option value="{{W.ID}}" ng-repeat="W in WarehouseList">{{W.WarehouseName}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label class="fld-required">Reason for ordering RFID</label>
+                                <div class="input-group">
+                                    <select id="ordering-reason" name="ActionID" class="form-control select2" required
+                                    ng-model="RFID.ActionID" ng-change="onActionIDChange(RFID.OrderingReasonID)"> 
+                                        <option value="{{OIR.ID}}" ng-repeat="OIR in OrderingReasonList">{{OIR.InventoryAction}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label>RFID Supply Vendor</label>
+                                <div class="input-group">
+                                    <select id="supply-vendor" name="SupplierID" class="form-control select2"
+                                    ng-model="RFIDData.SupplierID" ng-change="onSupplierChange(RFIDData.ProductID)"> 
+                                        <option value="{{Sv.ID}}" ng-repeat="Sv in SupplierList">{{Sv.RFIDSupplierName}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label>Qty</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" ng-keypress="filterValue($event)" name="QTY" ng-model="RFIDData.QTY">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label>&nbsp;</label>
+                                <div class="action-group">
+                                    <button type="button" ng-click="update()" ng-show="updateChild" class="btn blue fa fa-refresh"> Update</button>
+                                    <button type="button" ng-click="update1()" ng-show="updateChild1"  class="btn blue fa fa-refresh"> Update</button>                                                    
+                                    <button type="button" ng-click="addData()" ng-show="addChild" class="btn blue fa fa-plus" ng-disabled="RFIDChld.$invalid"> Add Data</button>
+                                    <button type="button" ng-click="cancelChild()" class="btn blue fa fa-close"> Cancel</button>                                                                                                        
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class ="row">
+        <form name="RFIDChld">
+            <div  class="col-md-12">
+                <div class="portlet light mb-3">
+                    <div class="form-body">
+                        <div class ="row"  >
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <div class="form-group">
+                                    <label>Qty</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" ng-keypress="filterValue($event)" name="QTY" ng-model="RFIDData.QTY" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <div class="form-group">
+                                    <label>RFID Supply Vendor</label>
+                                    <div class="input-group">
+                                        <select id="supply-vendor" name="SupplierID" class="form-control select2" required 
+                                        ng-model="RFIDData.SupplierID" ng-change="onSupplierChange(RFIDData.ProductID)"> 
+                                            <option value="{{Sv.ID}}" ng-repeat="Sv in SupplierList">{{Sv.RFIDSupplierName}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label>&nbsp;</label>
+                                    <div class="action-group">
+                                        <button type="button" ng-click="update()" ng-show="updateChild" class="btn blue fa fa-refresh"> Update</button>
+                                        <button type="button" ng-click="update1()" ng-show="updateChild1"  class="btn blue fa fa-refresh"> Update</button>                                                    
+                                        <button type="button" ng-click="addData()" ng-show="addChild" class="btn blue fa fa-plus" ng-disabled="RFIDChld.$invalid"> Add Data</button>
+                                        <button type="button" ng-click="cancelChild()" class="btn blue fa fa-close"> Cancel</button>                                                                                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>					
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div> -->
+    <div class="portlet light mb-3">
+        <div class="portlet-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="order-rfid-table">
+                    <thead>
+                        <tr>
+                            <th width="70px">S.No</th>
+                            <th>RFID Supply Vendor</th>
+                            <th>Qty</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="Data in OrderRFIDData">
+                            <td>{{$index + 1}}</td>
+                            <td>{{Data.RFIDSupplierName}}</td>
+                            <td>{{Data.QTY}}</td>
+                            <td><a title="Remove" ng-click="removeData($index, Data.ID)" class="delete-icon fa fa-trash font-red-thunderbird"></a>
+                                <a title="Edit" ng-click="editData($index, Data.ID)" class="edit-icon fa fa-edit font-green-jungle"></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label>&nbsp;</label>
+                        <div class="action-group">
+                            <button type="button" ng-click="saveOrderRFID(PrntFrm.$valid)" class="btn blue fa fa-send-o" ng-disabled="PrntFrm.$invalid">Send</button>
+                            <button type="button" ng-click="cancel()" class="btn blue fa fa-close">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>	
+        </div>
+    </div>
+</div>
+<div class="modal fade in" id="saveinventory"  data-width="450">  
+    <div class="modal-header" style="background-color: #299d9d;">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="false"></button>
+        <h3><span class="modal-title custom-font-color">RNT - Order RFID</span></h3>
+    </div>
+    <div class="modal-header">
+        <p><h4> &nbsp;PO Request Sent Successfully !</h4></p>
+    </div>
+</div>

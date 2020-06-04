@@ -1,0 +1,235 @@
+
+<button ng-click="showfeedback()"
+style="background-color: rgb(3, 169, 244); border:none; color: rgb(255, 255, 255);">Feedback
+<i class="fa fa-bell"></i></button>
+
+<div id="ViewFeedback" class="modal fade confirm-box" data-backdrop="static">
+    <div class="feedback-form">
+        <div class="userfb" ng-show="frontcard">
+            <div class="feedbacktitle">
+                <a href="#" class="Container-sp Idea" ng-click="getfbType('Idea')">IDEA</a>
+                <a href="#" class="Container-sp Question" ng-click="getfbType('Question')">QUESTION</a>
+                <a href="#" class="Container-sp Problem" ng-click="getfbType('Problem')">PROBLEM</a>
+                <a href="#" class="Container-sp Praise" ng-click="getfbType('Praise')">PRAISE</a>
+            </div>
+            <div class="portlet-body-fb"> 
+                <textarea class="body-fb" ng-model="FormData.Feedback" placeholder="Enter your feedback here"></textarea>
+            </div>
+            <div class="fb-media">
+                <div class="fb-media-screenshot">
+                    <a href="#" class="fb-media__link">
+                        <i class="fa fa-camera"></i> Take a screenshot
+                    </a>
+                </div>
+            </div>
+            <div>
+                <button ng-click="nextPage(FormData.Feedback)" class="nxtbtn">Next <i class="fa fa-arrow-right"></i></button>
+            </div>
+        </div>
+        <div class="userfb">
+            <form name="feedbackForm">
+                <div class="common_flip" ng-show="commoncard">
+                    <div class="feedbacktitle fbdetails">
+                        <a href="#" class="fb-detail">DETAILS</a>
+                    </div>
+                    <div class="portlet-body"> 
+                        <div class="un-field" ng-class="{ 'has-error' : feedbackForm.Email.$invalid &&  feedbackForm.Email.$dirty}">
+                            <label class="un-field__label">Email address</label>
+                            <input type="email" ng-model="FormData.EmailID" class="fb-email" placeholder="you@example.com" value="" required>
+                        </div>
+                        <div class="un-field" ng-class="{ 'has-error' : feedbackForm.Name.$invalid &&  feedbackForm.Name.$dirty}">
+                            <label class="un-field__label">Your Name</label>
+                            <input type="text" ng-model="FormData.Name" class="fb-email" placeholder="Enter your Name" value="" required>
+                        </div>
+                        <div class="un-field" ng-class="{ 'has-error' : feedbackForm.Summary.$invalid &&  feedbackForm.Summary.$dirty}">
+                            <label class="un-field__label">Summary</label>
+                            <input type="text" ng-model="FormData.Summary" class="fb-email" placeholder="Short summary" value="" required>
+                        </div>
+                        <div class="un-field">
+                            <label class="un-field__label">Feedback Type</label>
+                            <select name="Type" ng-model="FormData.Type" ng-change="getfbType(FormData.Type)" class="fb-email" >
+                                <option value = "Idea" >Idea</option>
+                                <option value = "Question" >Question</option>
+                                <option value = "Problem" >Problem </option>
+                                <option value = "Praise" >Praise </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="fb-footer">
+                        <button ng-click="backtofrontfb()" class="backbtn"><i class="fa fa-arrow-left"></i> back</button>
+                        <button ng-click="submitFeedback(feedbackForm.$valid)" class="subbtn">Submit</i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="back_flip" ng-show="backcard">
+            <div class="Container">
+                <a href="#" class="Container" >Sent successfully</a>
+            </div>
+            <div class="fb-body">
+                <i class="fa fa-check result_ok"></i>
+            </div>
+            <div>
+                <button ng-click="backtomain()" class="donebtn">Done</button>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .Container {
+        background-color: #fff;
+        line-height: 110px;
+        text-align: center;
+        font-size: 28px;
+        font-weight: 200;
+        color: #6a6f7b;
+    }
+    .result_ok {
+        font-size: 80px;
+        text-align: center;
+        /* background-color: #d9b56d; */
+    }
+    .donebtn {
+        width: 100%;
+        background-color: #d9b56d;
+        padding:20px;
+        color: #fff;
+        border: none;
+    }
+    .fb-body {
+        text-align: center;
+        line-height: 127px;
+        color: #6a6f7b;
+        background-color: #fff;
+        border: none;
+    }
+    .userfeedback {
+        width: 30%;
+        margin-top: 11%;
+        margin-left: 26%;
+    }
+    .feedbacktitle {
+        background-color: #f2f2f2;
+        line-height: 44px;
+        text-align: center;
+        border: none;
+        margin-left: -25px;
+    }
+    .portlet-body-fb textarea{
+        background-color: #fff;
+        resize: none!important;
+        padding: 12px;
+        font-size: inherit;
+        line-height: inherit;
+        font-weight: 200;
+        box-sizing: border-box;
+    }
+    .body-fb{
+        border: none;
+        display: block;
+        width: 100%;
+        border-radius: 0;
+        height: 180px !important;
+        max-height: 250px !important;
+        color: #6a6f7b;
+        /* width: 100%;
+        height: 245px !important;
+        max-height: 250px !important;
+        border: none;
+        resize: none !important; */
+    }
+    .fb-footer {
+        display: flex;
+        border: none;
+    }
+    .subbtn {
+        width: 50%;
+        background-color: #1677cb;
+        padding:20px;
+        color: #fff;
+        border: none;
+    }
+    .backbtn { 
+        width: 50%;
+        background-color: #d9b56d;
+        padding:20px;
+        color: #fff;
+        border: none;
+    }
+    .nxtbtn {
+        width: 100%;
+        background-color: #1677cb;
+        padding:20px;
+        color: #fff;
+        border: none;
+        /* display: inline-flex;    
+        justify-content: center; */
+    }
+    .un-field {
+    display: -ms-flexbox;
+    display: flex;
+    border-bottom: 1px solid #e8e8e9;
+    padding: 15px 0;
+    position: relative;
+    margin: 0 24px;
+}
+.fb-email {
+    outline: none;
+    color: #6a6f7b;
+    line-height: 20px;
+    margin: 0;
+    border: none;
+    width: 50%;
+}
+.un-field__label {
+    display: inline-block;
+    color: #6a6f7b;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+    width: 50%;
+}
+.fb-detail {
+    justify-content: center;
+    border: none;
+    color: #6a6f7b;
+}
+.fbdetails {
+    background-color: #fff;
+    border: none;
+}
+#ViewFeedback {
+    margin-top: 149px !important;
+    max-width: 44% !important;
+    width: 23%;
+}
+.Container-sp {
+    margin-left:16px;
+    color: #6c6f75;
+}
+.fb-media {
+    padding: 7px;;
+}
+.fb-media__link {
+    color: #6c6f75;
+}
+/* #un-slide div.un-textarea-wrapper textarea {
+    background-color: #fff;
+    resize: none!important;
+    padding: 12px;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: 200;
+    box-sizing: border-box;
+}
+#un-slide .un-slide-feedback__text {
+    transition: background-color .3s,color .3s;
+}
+#un-slide .un-slide-feedback__text {
+    border: none;
+    display: block;
+    width: 100%;
+    height: 190px;
+    border-radius: 0;
+} */
+</style>

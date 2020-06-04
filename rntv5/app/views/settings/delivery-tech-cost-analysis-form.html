@@ -1,0 +1,147 @@
+<form name="FormAnalysisData" class="horizontal-form" method="post">
+        <div class="portlet light mb-3">
+            <div class="form-body">
+                <div class="row">
+                    <div class="col-md-12">
+                    <h3><!-- <img class="back-img" src="img/h-arrow.png" alt="Back" ng-click="backToManagmentPage()" /> -->
+                        <strong>Delivery And Tech Cost Analysis</strong></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="portlet light mb-3">
+        <div class="portlet light">
+            <div class="portlet-body">
+                <div class="table-responsive">
+                    <!-- <div class="col-xs-12 col-md-3">
+                        <div class="form-group">
+                            <label class=" control-label lbl-font fld-seperator">Effective From  </label>
+                            <div ng-class="{ 'has-error': FormAnalysisData.EffectiveFrom.$invalid && FormAnalysisData.EffectiveFrom.$touched || EffectiveFromerrMessage}">
+                                <input type="text" class="form-control" name="EffectiveFrom" id="EffectiveFrom" ng-model="AnalysisData.EffectiveFrom"
+                               ng-disabled="DisableTextBox" ng-change="checkErr(AnalysisData.EffectiveFrom)" ng-init="InputMask()" required>
+                                <p ng-show="FormAnalysisData.EffectiveFrom.$invalid && FormAnalysisData.EffectiveFrom.$touched"class="help-block">This field is required.</p>
+                                <P class="error-red">{{EffectiveFromerrMessage}}</p>
+                            </div>
+                        </div>
+                    </div> -->
+                    <br/><br>
+                    <table id="delivery-tech-cost-analysis-data-table" class="table table-bordered border-color:black">
+                        <thead>
+                            <tr>
+                                <th colspan="3"><h3> Delivery Cost Analysis </h3></th>
+                            </tr>
+                            <tr>
+                                <th><h4> Resources</h4></th>
+                                <th><h4> Basic (AED)</h4></th>
+                                <!-- <th><h4> Exchange Rate Modified At</h4></th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Driver Salary Including Benefits</td>
+                                <td contenteditable="true" ng-keypress="filterValue($event)" type="text" ng-model="AnalysisData.BDriverSalary" ng-pattern="onlyNumbers" ng-keyup="CalculateDeliveryTechCost('LDriverSalary')" name="BDriverSalary" required >0</td>
+                                <!-- <td contenteditable="true" type="text" ng-model="AnalysisData.ExchangeRate" ng-pattern="onlyNumbers" name="ExchangeRate"></td> -->
+                            </tr>
+                            <tr>
+                                <td>Ops Coordinator Salary Including Benefits</td>
+                                <td contenteditable="true" ng-keypress="filterValue($event)" type="text" ng-model="AnalysisData.BOpsCoordinatorSalary" ng-pattern="onlyNumbers" ng-keyup="CalculateDeliveryTechCost('LOpsCoordinatorSalary')" name="BOpsCoordinatorSalary" required>0</td>
+                                <!-- <td contenteditable="true" ></td> -->
+                            </tr>
+                            <tr>
+                                <td>Van EMI & Insurance</td>
+                                <td contenteditable="true" ng-keypress="filterValue($event)" type="text" ng-model="AnalysisData.BVanEMIInsurance" ng-pattern="onlyNumbers" ng-keyup="CalculateDeliveryTechCost('LVanEMIInsurance')" name="BVanEMIInsurance" required>0</td>
+                                <!-- <td contenteditable="true" type="text"></td> -->
+                            </tr>
+                            <tr>
+                                <td>Fuel Cost & Maintenance</td>
+                                <td contenteditable="true" ng-keypress="filterValue($event)" type="text" ng-model="AnalysisData.BFuelCostMaintenance" ng-pattern="onlyNumbers" ng-keyup="CalculateDeliveryTechCost('LFuelCostMaintenance')" name="BFuelCostMaintenance" required>0</td>
+                                <!-- <td contenteditable="true" type="text"></td> -->
+                            </tr>
+                            <tr>
+                                <td>No.of Locations that can be handled by single ops team</td>
+                                <td contenteditable="true" ng-keypress="filterValue($event)" type="text" ng-model="AnalysisData.LocationCountOPSTeam" ng-pattern="onlyNumbers" ng-keyup="CalculateDeliveryTechCost('LocationCountOPSTeam')" name="LocationCountOPSTeam" required>0</td>
+                                <!-- <td contenteditable="true"></td> -->
+                            </tr>
+                            </tbody>
+                            <tfoot>
+                                <td>Total Delivery cost/ day/ Customer</td>
+                                <td contenteditable="false" type="text" ng-model="AnalysisData.TotalDeliveryCost" ng-keyup="CalculateDeliveryTechCost('TotalDeliveryCost')" ng-pattern="onlyNumbers" name="TotalDeliveryCost" required>0.00</td>
+                                <!-- <td contenteditable="true"></td> -->
+                            </tfoot>
+                        </table>  
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th colspan="4"><h3> Tech Cost Analysis </h3></th>
+                            </tr>
+                            <tr>
+                                <th colspan="2"></th> <th colspan="2"><h3>Cost</h3></th> 
+                            </tr>
+                            <tr>
+                                <th><h4> Items</h4></th>
+                                <th><h4> Item Cost ($)</h4></th>
+                                <th><h4> Internal Team (AED)</h4></th>
+                                <th><h4> Laundry Team (AED)</h4></th>
+                            </tr>
+                        </thead>
+                            <tbody>
+                                <tr>
+                                <td>RFID HH Reader Cost/ Unit</td>
+                                <td contenteditable="true" ng-keypress="filterValue($event)" type="text" ng-model="AnalysisData.ICReaderCostRFID" ng-pattern="onlyNumbers" ng-keyup="CalculateDeliveryTechCost('ITReaderCostRFID')" name="ICReaderCostRFID" required>0 </td>
+                                <td contenteditable="false" type="text" ng-model="AnalysisData.ITReaderCostRFID" name="ITReaderCostRFID"> 0</td>
+                                <td contenteditable="false" type="text" ng-model="AnalysisData.ITReaderCostRFID" name="ITReaderCostRFID">0</td>
+                            </tr>
+                            <tr>
+                                <td>Tablet</td>
+                                <td contenteditable="true" ng-keypress="filterValue($event)" type="text" ng-model="AnalysisData.ICTablet" ng-pattern="onlyNumbers" ng-keyup="CalculateDeliveryTechCost('ITTablet')" name="ICTablet" required>0</td>
+                                <td contenteditable="false" type="text" ng-model="AnalysisData.ITTablet" name="ITTablet">0</td>
+                                <td contenteditable="false" type="text" ng-model="AnalysisData.ITTablet" name="ITTablet">0</td>
+                            </tr>
+                            <tr>
+                                <td>Total Tech Cost/ Team</td>
+                                <td contenteditable="true" ng-keypress="filterValue($event)" type="text" ng-model="AnalysisData.ICTotalTechCost" ng-pattern="onlyNumbers" ng-keyup="CalculateDeliveryTechCost('ITTotalTechCost')" name="ICTotalTechCost" required>0</td>
+                                <td contenteditable="false" type="text" ng-model="AnalysisData.ITTotalTechCost" name="ITTotalTechCost">0</td>
+                                <td contenteditable="false" type="text" ng-model="AnalysisData.ITTotalTechCost" name="ITTotalTechCost">0</td>
+                            </tr>
+                            <tr>
+                                <td>Bin Cost</td>
+                                <td contenteditable="true" ng-keypress="filterValue($event)" type="text"ng-model="AnalysisData.BinCost" ng-pattern="onlyNumbers" name="BinCost" required>0</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>No of Bins</td>
+                                <td contenteditable="true" ng-keypress="filterValue($event)" type="text" ng-model="AnalysisData.BinCount" ng-change="CheckTypeValue(AnalysisData.TechCost)" ng-pattern="onlyNumbers" name="BinCount" required>0</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>No. of Locations to be handled</td>
+                                <td></td>
+                                <td contenteditable="false" type="text" ng-model="AnalysisData.LocationCountInternalTeam" name="LocationCountInternalTeam">0</td>
+                                <td contenteditable="false" type="text" ng-model="AnalysisData.LocationCountLaundryTeam" name="LocationCountLaundryTeam">0</td>
+                            </tbody>
+                            <tfoot>
+                                <td>Tech cost/ day/ Customer</td>
+                                <td contenteditable="false" type="text" ng-model="AnalysisData.TechCost" name="TechCost" required>0.00</td>
+                                <td></td>
+                                <td></td>
+                            </tfoot>
+                        </table>
+                    <div class="col-xs-12">
+                    <label>&nbsp;</label>
+                        <div class="action-group">
+                            <button type="button" ng-click="saveDeliveryTechDetails(FormAnalysisData.$valid)" class="btn blue" ng-disabled="FormAnalysisData.$invalid">Save</button>
+                            <button type="button" ng-click="clearDeliveryTechDetails()" class="btn green">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                    <div ng-if="DTShowErrorMsg" class="alert alert-danger">
+                        <button class="close" data-close="alert"></button>
+                        <span class="error-txt">{{DTErrorMsg}}</span>
+                    </div>
+                </div>				
+            </div>
+        </div>
+    </div>
+</form>

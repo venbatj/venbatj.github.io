@@ -1,0 +1,34 @@
+<div class="ui-page compact">
+    <div class="portlet light mb-3">
+        <div class="portlet-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="top-control-bar">
+                    <h3 style="text-align: left;">
+                        <button type="button" ng-click="backToInventoryPage()" class="btn blue fa fa-reply-all"> Back</button>
+                        <strong>Customer And Warehouse PO Request</strong></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portlet light">
+        <div class="portlet-body">
+            <table id="customer-warehouse-list" class="table table-striped table-bordered table-hover dt-responsive" width="100%">
+                <thead>
+                    <tr>
+                        <td>Customer Name</td>
+                        <td>Warehouse Name</td>
+                        <td>PO Request Date</td>
+                        <td>PO Sent Date by Finance</td>
+                        <td>PO Number</td>
+                        <td>PO Sent to</td>
+                        <td>Action</td>
+                        <td>Status</td>
+                        <td>Attachment</td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>  
+</div>

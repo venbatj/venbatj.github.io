@@ -1,0 +1,75 @@
+<!-- CUSTOMER PAGE START HERE -->
+<div class="ui-page compact">
+    <div class="portlet light mb-3">
+        <div class="portlet-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="top-control-bar">
+                        <div style="text-align: left;" class="action-group">
+                            <h3>
+                                <button ng-click="backToManagmentPage()" class="btn blue fa fa-reply-all"> Back</button>
+                                <strong>RFID Supplier Management</strong>
+                                <div ng-if="RFIDSupplierID > 0" class="caption-right">
+                                    <button ng-click="ContactInform()" class="btn green" id="CItooltips">Contact Info</button>
+                                    <button ng-click="BillingInform()" class="btn green" id="BItooltips">Billing Info</button>
+                                    <button ng-click="ContractInform()" class="btn green" id="CNTtooltips">Contract Info</button>
+                                </div>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portlet light form-view mb-3">
+        <div class="portlet-title">
+            <div class="caption">
+                <h3 class="UserName">
+                    RFID Supplier Info - Head Office
+                </h3>
+            </div>            
+        </div>        
+        <div class="portlet-body">        	
+            <div class="userinfo" ng-include="'views/rfid/rfid-supplier-info.html'"></div>
+        </div>
+        <a class="scroll-to-top ng-scope" style="display: block;" ng-click="onEdit()">
+            <i class="fa fa-hand-o-up fa-2x"></i>     
+        </a> 
+    </div>
+    <div ng-if="RFIDSupplierID > 0" class="portlet light form-view mb-3" id="contact-info">
+        <div class="portlet-title">
+            <div class="caption">
+                <h3 class="UserName">
+                    Contact Info
+                </h3>
+            </div>            
+        </div>        
+        <div class="portlet-body">        	
+            <div class="userinfo" ng-include="'views/rfid/contact-info.html'"></div> 
+        </div>
+    </div>
+    <div ng-if="RFIDSupplierID > 0" class="portlet light form-view mb-3" id="billing-info">
+        <div class="portlet-title">
+            <div class="caption">
+                <h3 class="UserName">
+                    Billing Info
+                </h3>
+            </div>            
+        </div>        
+        <div class="portlet-body">        	
+            <div class="userinfo" ng-include="'views/rfid/billing-info.html'"></div>
+        </div>
+    </div>
+    <div ng-if="RFIDSupplierID > 0" class="portlet light form-view mb-3" id="contract-info">
+        <div class="portlet-title">
+            <div class="caption">
+                <h3 class="UserName">
+                    Contract Info
+                </h3>
+            </div>            
+        </div>        
+        <div class="portlet-body">        	
+            <div class="userinfo" ng-include="'views/rfid/contract-info.html'"></div>
+        </div>
+    </div>
+</div>

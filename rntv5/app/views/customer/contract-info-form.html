@@ -1,0 +1,311 @@
+<form name="FormContractInfo" class="horizontal-form" method="post">
+    <div class="portlet-body">
+        <div class="form-body">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="form-group">
+                        <label class="fld-required">Location</label>
+                        <div class="input-group">
+                            <select id="contract-location" name="LocationID" class="form-control select2"
+                            ng-disabled="disable"ng-model="ContractInfo.LocationID"ng-change="onCCLocationChange(ContractInfo.LocationID)" required> 
+                                <option value="{{CL.ID}}" ng-repeat="CL in LocationList">{{CL.LocationName}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>  
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="form-group" ng-class="{'has-error' : FormContractInfo.ContractSignedDate.$invalid && FormContractInfo.ContractSignedDate.$touched}">
+                        <label class="fld-required">Contract Signed Date</label>
+                        <div class="input-group">
+                            <div class="input-group date">
+                                <input type="text" class="form-control" name="ContractSignedDate" id="ContractSignedDate" ng-init="InputMask()"
+                                ng-disabled="disable"ng-model="ContractInfo.ContractSignedDate" required> 
+                                <span class="input-group-addon" id="ContractSignedDate" >
+                                    <span class="fa fa-calendar" id="calendar"></span>
+                                </span>
+                            </div>
+                            <!-- <p ng-show="FormContractInfo.ContractSignedDate.$invalid && FormContractInfo.ContractSignedDate.$touched" class="help-block">This field is required.</p>  -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="form-group" ng-class="{'has-error' : FormContractInfo.DeliveryStartDate.$invalid && FormContractInfo.DeliveryStartDate.$touched}">
+                        <label class="fld-required">Delivery Start Date</label>
+                        <div class="input-group date">
+                            <input type="text" class="form-control" id="delivery-start-date" name="DeliveryStartDate"
+                            ng-disabled="disable" ng-model="ContractInfo.DeliveryStartDate" ng-init="InputMask()"  required> 
+                            <span class="input-group-addon" id="delivery-start-date" >
+                                <span class="fa fa-calendar" id="start-date"></span>
+                            </span>
+                            <!-- <p ng-show="FormContractInfo.DeliveryStartDate.$invalid && FormContractInfo.DeliveryStartDate.$touched" class="help-block">This field is required.</p>  -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="form-group" ng-class="{'has-error' : FormContractInfo.DeliveryEndDate.$invalid && FormContractInfo.DeliveryEndDate.$touched || ContractError}">
+                        <label class="fld-required">Delivery End Date</label>
+                        <div class="input-group">
+                            <input type="text" ng-change="endDate()" class="form-control" id="delivery-end-date" name="DeliveryEndDate"
+                            ng-disabled="disable" ng-model="ContractInfo.DeliveryEndDate" ng-init="InputMask()" ng-blur="reminder()" required> 
+                            <span class="input-group-addon" id="delivery-end-date" >
+                                <span class="fa fa-calendar" id="end-date"></span>
+                            </span>
+                                <!-- <p ng-show="FormContractInfo.DeliveryEndDate.$invalid && FormContractInfo.DeliveryEndDate.$touched" class="help-block">This field is required.</p>  -->
+                        </div>
+                        <p ng-show="ContractError" class="help-block">This End Date must be Greater than Start Date</p>                         
+                        
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="form-group" ng-class="{'has-error' : FormContractInfo.ContractTypeID.$invalid && FormContractInfo.ContractTypeID.$touched}">
+                        <label class="fld-required">Contract Type</label>
+                        <div class="input-group">
+                            <select id="contract-type" name="ContractTypeID" class="form-control select2" required
+                            ng-disabled="disable" ng-model="ContractInfo.ContractTypeID" ng-change="onContractTypeChange(Ct.ContractType)"> 
+                                <option value="{{Ct.ID}}" ng-repeat="Ct in ContractTypeList">{{Ct.ContractType}}</option>
+                            </select>
+                            <p ng-show="FormContractInfo.ContractTypeID.$invalid && FormContractInfo.ContractTypeID.$touched" class="help-block">This field is required.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="form-group">
+                        <label>Total Contract Value</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="TotalContractValue" ng-disabled="disable" ng-model="ContractInfo.TotalContractValue" ng-keypress="filterValue($event)" ng-paste="paste($event)"> 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="form-group">
+                        <label>Monthly Billing Value</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" ng-disabled="disable" ng-model="ContractInfo.MonthlyBillingValue" ng-keypress="filterValue($event)" ng-paste="paste($event)"> 
+                        </div>
+                    </div>
+                </div> <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="form-group" ng-class="{'has-error' : FormContractInfo.InvoicingFrequencyID.$invalid && FormContractInfo.InvoicingFrequencyID.$touched}">
+                        <label class="fld-required">Invoicing Frequency</label>
+                        <select id="invoicing-frequency" name="InvoicingFrequencyID" ng-disabled="disable" ng-model="ContractInfo.InvoicingFrequencyID" class="form-control select2" required> 
+                            <option value="{{If.ID}}" ng-repeat="If in InvoicingFrequencyList">{{If.InvoicingFrequency}}</option>
+                        </select>     
+                        <p ng-show="FormContractInfo.InvoicingFrequencyID.$invalid && FormContractInfo.InvoicingFrequencyID.$touched" class="help-block">This field is required.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="form-group" ng-class="{'has-error' : FormContractInfo.Advance.$invalid && FormContractInfo.Advance.$touched}">
+                        <label class="fld-required">Advance</label>
+                        <div class="input-group">
+                            <select id="advance" name="Advance" class="form-control select2" required ng-disabled="disable"
+                            ng-model="ContractInfo.Advance" ng-change="onAdvanceChange(A.Advance)">
+                                <option value="{{A.ID}}" ng-repeat="A in AdvanceList">{{A.Advance}}</option>
+                            </select>
+                            <p ng-show="FormContractInfo.Advance.$invalid && FormContractInfo.Advance.$touched" class="help-block">This field is required.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="form-group" ng-class="{'has-error' : FormContractInfo.PaymentTerms.$invalid && FormContractInfo.PaymentTerms.$touched}">
+                        <label class="fld-required">Payment Terms</label>
+                        <div class="input-group">
+                            <select id="payment-terms" name="PaymentTerms" class="form-control select2" required ng-disabled="disable"
+                            ng-model="ContractInfo.PaymentTerms" ng-change="onPaymentTermsChange(Pt.PaymentTerms)"> 
+                                <option value="{{Pt.ID}}" ng-repeat="Pt in PaymentTermsList">{{Pt.PaymentTerms}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="form-group">
+                        <label>Commercial/Trade License No</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="TradeLicenseNo" ng-disabled="disable" ng-model="ContractInfo.TradeLicenseNo"> 
+                        </div>
+                    </div>
+                </div> 
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="form-group" ng-class="{'has-error' : FormContractInfo.TaxID.$invalid && FormContractInfo.TaxID.$touched}">
+                        <label class="fld-required">VAT/GST/Tax ID</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="TaxID" ng-disabled="disable" ng-model="ContractInfo.TaxID" required>
+                            <p ng-show="FormContractInfo.TaxID.$invalid && FormContractInfo.TaxID.$touched" class="help-block">This field is required.</p> 
+                        </div>
+                    </div>
+                </div> 
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="form-group">
+                        <label>Contract Renewal Reminder 1 </label>
+                            <div class="input-group">
+                                <!-- <input type="checkbox" name="RenewalReminder1" id="CRR1" ng-model="ContractInfo.RenewalReminder1" value="1"> -->
+                                <input type="text" class="form-control" name="RenewalReminder1Date" id="RenewalReminder1Date" ng-disabled="disable" ng-model="ContractInfo.RenewalReminder1Date" ng-init="InputMask()">
+                                <span class="input-group-addon" id="RenewalReminder1Date" >
+                                    <span class="fa fa-calendar" id="reminder1"></span>
+                                </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="form-group">
+                        <label>Contract Renewal Reminder 2</label>
+                            <div class="input-group">
+                                <!-- <input type="checkbox" name="RenewalReminder2" id="CRR2" ng-model="ContractInfo.RenewalReminder2" value="2"> -->
+                                <input type="text" class="form-control" name="RenewalReminder2Date" id="RenewalReminder2Date" ng-disabled="disable" ng-model="ContractInfo.RenewalReminder2Date" ng-init="InputMask()">
+                                <span class="input-group-addon" id="RenewalReminder2Date" >
+                                    <span class="fa fa-calendar" id="reminder2"></span>
+                                </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="form-group">
+                        <label>Contract Renewal Reminder 3 </label>  
+                            <div class="input-group">
+                                <!-- <input type="checkbox" class="mt-checkbox" name="RenewalReminder3" id="CRR3" ng-model="ContractInfo.RenewalReminder3" value="3"> -->
+                                <input type="text" class="form-control" name="RenewalReminder3Date" id="RenewalReminder3Date" ng-disabled="disable" ng-model="ContractInfo.RenewalReminder3Date" ng-init="InputMask()">
+                                <span class="input-group-addon" id="RenewalReminder3Date" >
+                                    <span class="fa fa-calendar" id="reminder3"></span>
+                                </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="form-group" ng-class="{'has-error' : FormContractInfo.ContractUpload.$invalid && FormContractInfo.ContractUpload.$touched}">
+                        <label class="fld-required">Upload Contract</label>
+                        <div class="input-group file-group" id="contract-upload-ctrl" ng-init="initContractUpload()">
+                            <div>
+                                <input type="file" id="ContractUpload" class="file-pick" ng-disabled="disable" name="ContractUpload" accept="image/x-png, image/jpeg, application/pdf">
+                                <p ng-show="FormContractInfo.ContractUpload.$invalid && FormContractInfo.ContractUpload.$touched" class="help-block">This field is required.</p> 
+                            </div>
+                            <input type="text" class="form-control" readonly/>
+                            <div class="file-controls">
+                                <i title="Select" class="fa fa-folder-open font-blue-ebonyclay up-btn"></i>
+                                <i title="Change" class="fa fa-edit font-green-jungle ch-btn"></i>
+                                <i title="Remove" class="fa fa-trash font-red-mint rm-btn" ng-click="removeLogo()"></i>
+                            </div>
+                            <p ng-show="ContractUpload">This field is required.</p>
+                        </div>
+                    </div>
+                </div>       
+            </div>
+            <div class="row">    
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="form-group">
+                        <label>Upload Trade License</label>
+                        <div class="input-group file-group" id="trade-license-ctrl" ng-init="initTradeLicense()">
+                            <div>
+                                <input type="file" class="file-pick" ng-disabled="disable" name="TradeLicense" accept="image/x-png, image/jpeg, application/pdf"/>
+                            </div>
+                            <input type="text" class="form-control" readonly/>
+                            <div class="file-controls">
+                                <i title="Select" class="fa fa-folder-open font-blue-ebonyclay up-btn"></i>
+                                <i title="Change" class="fa fa-edit font-green-jungle ch-btn"></i>
+                                <i title="Remove" class="fa fa-trash font-red-mint rm-btn" ng-click="removeLogo()"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="form-group">
+                        <label>Upload Tax Certificate</label>
+                        <div class="input-group file-group" id="tax-certificate-ctrl" ng-init="initTaxCertificate()">
+                            <div>
+                                <input type="file" class="file-pick" ng-disabled="disable" name="TaxCertificate" accept="image/x-png, image/jpeg, application/pdf"/>
+                            </div>
+                            <input type="text" class="form-control" readonly/>
+                            <div class="file-controls">
+                                <i title="Select" class="fa fa-folder-open font-blue-ebonyclay up-btn"></i>
+                                <i title="Change" class="fa fa-edit font-green-jungle ch-btn"></i>
+                                <i title="Remove" class="fa fa-trash font-red-mint rm-btn" ng-click="removeLogo()"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+                <div class="col-xs-12 col-sm-6 col-md-3" ng-if="ContractInfo.Advance == 1">
+                    <div class="form-group" ng-class="{'has-error' : FormContractInfo.AdvanceDeposit.$invalid && FormContractInfo.AdvanceDeposit.$touched}">
+                        <label class="fld-required">Advance Deposit</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="AdvanceDeposit" ng-disabled="disable" ng-model="ContractInfo.AdvanceDeposit" ng-keypress="filterValue($event)" ng-paste="paste($event)" required> 
+                            <p ng-show="FormContractInfo.AdvanceDeposit.$invalid && FormContractInfo.AdvanceDeposit.$touched" class="help-block">This field is required.</p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div class="row"> 
+                <div class="col-xs-12 caption-right" ng-show="formhiding">
+                    <div class="form-group">
+                        <label id="cc-spacing"></label>
+                        <label id="cc-location-name" name="LocationName"></label>
+                        <label id="cc-coma1"></label>
+                        <label>&nbsp;</label>
+                        <label id="cc-location-address" name="LocationAddress"></label>
+                        <label id="cc-coma2"></label>
+                        <label>&nbsp;</label>
+                        <label id="cc-location-city" name="LocationCity"></label>
+                        <label id="cc-coma3"></label>
+                        <label>&nbsp;</label>
+                        <label id="cc-location-state" name="LocationState"></label>
+                        <label id="cc-coma4"></label>
+                        <label>&nbsp;</label>
+                        <label id="cc-location-country" name="LocationCountry"></label>
+                        <label id="cc-coma5"></label>
+                        <label>&nbsp;</label>
+                        <label id="cc-location-phone" name="LocationPhone"></label>
+                        <label id="cc-coma6"></label>
+                        <label>&nbsp;</label>
+                        <label id="cc-location-zip" name="LocationZipcode"></label>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label>&nbsp;</label>
+                        <div class="action-group">
+                            <button type="button" ng-click="saveContractInfo(FormContractInfo)" class="btn blue fa fa-save" ng-disabled="FormContractInfo.$invalid || enableContract"> Save</button>
+                            <button type="button" ng-click="clearContractInfo(FormContractInfo)" class="btn green fa fa-close">Clear</button>    
+                        </div>
+                    </div>
+                </div> 
+                <div class="col-xs-12">
+                    <div ng-if="CNTShowErrorMsg" class="alert alert-danger">
+                        <button class="close" data-close="alert"></button>
+                        <span class="error-txt">{{CNTErrorMsg}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <table id="contract-details-data-table" class="table table-striped table-bordered table-hover dt-responsive" width="100%">
+                        <thead>
+                            <tr>
+                                <td class="check-box-column">
+                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" for="check-all-customer-contract-info">
+                                        <input type="checkbox" class="checkboxes check-all" value="1" ng-model="selectAll" id="check-all-customer-contract-info"/>
+                                        <span></span>
+                                    </label>
+                                </td>
+                                <td>Location</td>
+                                <td>Contract Signed Date</td>
+                                <td>Delivery Start Date</td>
+                                <td>Delivery End Date</td>
+                                <td>Contract Type</td>
+                                <td>Invoicing Frequency</td>
+                                <!-- <td>Advance</td> -->
+                                <td class="action-column">Edit</td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="modal fade in" id="contractInfo"  data-width="400">  
+    <div class="modal-header" style="background-color: #299d9d;">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="false"></button>
+        <h3><span class="modal-title custom-font-color">RNT - Customer Management</span></h3>
+    </div>
+    <div class="modal-header">
+        <p><h4>Contract Info - Saved Successfully</h4></p>
+    </div>
+</div>

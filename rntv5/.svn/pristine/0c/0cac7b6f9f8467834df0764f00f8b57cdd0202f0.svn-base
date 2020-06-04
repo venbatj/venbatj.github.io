@@ -1,0 +1,165 @@
+<form name="FrmDelivery">
+    <div class="portlet light mb-3">
+        <div class="portlet-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>
+                        <button ng-click="BackManagement()" class="btn blue fa fa-reply-all"> Back</button>
+                        <strong>Manage Pickup/ Delivery</strong>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row custom-row">
+        <div class="portlet light mb-3">
+            <div class="portlet-body">
+                <div class="form-body">
+                    <div class="row">
+                        <div  class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label>Customer</label>
+                                <div class="input-group">
+                                    <select id="customer-delivery" name="CustomerName" class="form-control select2"
+                                    ng-model="DeliveryData.CustomerName" ng-change="onCustomerChange(DeliveryData.CustomerName)"> 
+                                    <option value="{{CD.ID}}" ng-repeat="CD in CustomerDeliveryList">{{CD.CustomerName}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div  class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label>Customer Location</label>
+                                <div class="input-group">
+                                    <select id="customer-location" name="CustomerLocation" class="form-control select2"
+                                    ng-model="DeliveryData.CustomerLocation" ng-change="onLocationChange(DeliveryData.CustomerLocation)"> 
+                                    <option value="{{CL.ID}}" ng-repeat="CL in DeliveryLocationList">{{CL.LocationName}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div  class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label>Laundry Assigned</label>
+                                <div class="input-group">
+                                    <input type="text" id="laundry-data" ng-model="DeliveryData.LaundryAssigned" class="form-control" name="LaundryAssigned">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label>Scheduled Pick up time</label> 
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="pickuptime" ng-model="DeliveryData.SchedulePickupTime">
+                                    <span class="input-group-addon" id="pickup-time">
+                                        <span class="fa fa-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label>Scheduled delivery time</label> 
+                                <div class="input-group">
+                                    <input type="text" class="form-control deliverydate" id="deliverytime" ng-model="DeliveryData.ScheduleDeliveryTime" multiple> 
+                                    <span class="input-group-addon" id="delivery-date">
+                                        <span class="fa fa-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label>Valid until</label> 
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="validuntil" ng-model="DeliveryData.ValidUntil"> 
+                                    <span class="input-group-addon" id="valid-untill">
+                                        <span class="fa fa-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3" ng-show="revisedDate">
+                            <div class="form-group">
+                                <label>Revised Pick up  date & time</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="revisedpickup" ng-model="DeliveryData.RevisedPickupDateTime"> 
+                                    <span class="input-group-addon" id="revised-pickup">
+                                        <span class="fa fa-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3" ng-show="revisedDate">
+                            <div class="form-group">
+                                <label>Revised Delivery date & time</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="reviseddelivery" ng-model="DeliveryData.RevisedDeliveryDateTime"> 
+                                    <span class="input-group-addon" id="revised-delivery">
+                                        <span class="fa fa-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3" ng-show="revisedDate">
+                            <div class="form-group">
+                                <label>Revised Schedule Valid Until</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="reviseduntil" ng-model="DeliveryData.RevisedValidUntil"> 
+                                    <span class="input-group-addon" id="revised-until">
+                                        <span class="fa fa-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label>&nbsp;</label>
+                                <div class="action-group">
+                                    <button type="button" ng-click="assignDelivery(FrmDelivery)" class="btn blue fa fa-save"> Save</button>
+                                    <button type="button" ng-click="ClearDleivery(FrmDelivery)" class="btn blue fa fa-close"> Cancel</button>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="portlet-body">
+    <div class="form-body">
+        <div class="portlet light form-view mb-3" >
+            <div class="portlet-title">
+                <div class="caption">
+                    <h3 class="UserName">
+                        Manage Pickup
+                    </h3>
+                </div>					
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <table id="delivery-manage-data-table" class="table table-striped table-bordered table-hover dt-responsive" width="100%">
+                        <thead>
+                            <tr>
+                                <td class="check-box-column">
+                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" for="check-all-delivery-pickup">
+                                        <input type="checkbox" class="checkboxes check-all" value="1" ng-model="selectAll" id="check-all-delivery-pickup"/>
+                                        <span></span>
+                                    </label>
+                                </td>
+                                <td>Customer Name</td>
+                                <td>Customer Location</td>
+                                <td>Laundry Assigned</td>
+                                <td>Schedule Date Time</td>
+                                <td>Schedule Delivery Date Time</td>
+                                <td>Valid Until</td>
+                                <td class="action-column">Edit</td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>	

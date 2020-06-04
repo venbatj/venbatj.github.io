@@ -1,0 +1,103 @@
+
+2020-06-03 11:19:35 || SELECT ID, EmailID, LastLogin FROM rnt_Login WHERE (EmailID = 'admin@mail.com') AND (CONVERT(AES_DECRYPT(Password, 'RNT2018') USING 'utf8') = 'welcome') AND (Flag != 'R') LIMIT 0, 1
+2020-06-03 11:19:35 || SELECT LoginID, FirstName, LastName, Phone FROM rnt_User WHERE (LoginID = '1') LIMIT 0, 1
+2020-06-03 11:19:35 || SHOW COLUMNS FROM `rnt_Login` FROM `rntv5_dev`
+2020-06-03 11:19:35 || UPDATE rnt_Login SET LastLogin = '2020-06-03 11:19:35', Modified = '2020-06-03 11:19:35' WHERE (ID = '1')
+2020-06-03 11:19:55 || SHOW COLUMNS FROM `rnt_CustomerDetails` FROM `rntv5_dev`
+2020-06-03 11:19:55 || SELECT ID, CategoryName FROM rnt_Category WHERE (Flag != 'R') ORDER BY CategoryName ASC
+2020-06-03 11:19:55 || SELECT ID, LaundryName FROM rnt_LaundryDetails WHERE (Flag != 'R') ORDER BY LaundryName ASC
+2020-06-03 11:19:55 || SELECT ID, AccountManager, CustomerTypeID, Rooms, Star, AverageOccupancyRate, CustomerName, Address, CityID, State, CountryID, Zip, LandlineNumber, Currency, LocationCount, ContractCount, Logo, CustomerContact, BillingInfo, ShippingInfo, ContractInfo, CreatedBy, Flag, Modified FROM rnt_CustomerDetails WHERE (Flag != 'R') AND (CustomerName != '') ORDER BY CustomerName ASC
+2020-06-03 11:19:57 || SELECT C.ID, CT.CountryName, C.CityName FROM rnt_City C LEFT JOIN rnt_Country CT ON C.CountryID = CT.ID WHERE (C.Flag != 'R') AND (CT.Flag != 'R') ORDER BY C.CityName ASC
+2020-06-03 11:19:57 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC
+2020-06-03 11:19:57 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC
+2020-06-03 11:19:57 || SELECT C.ID, CT.CountryName, C.CityName FROM rnt_City C LEFT JOIN rnt_Country CT ON C.CountryID = CT.ID WHERE (C.Flag != 'R') AND (CT.Flag != 'R') ORDER BY C.CityName ASC
+2020-06-03 11:19:57 || SELECT ID, InvoicingFrequency FROM rnt_InvoicingFrequency WHERE (Flag != 'R') ORDER BY InvoicingFrequency ASC
+2020-06-03 11:19:57 || SELECT ID, CustomerService FROM rnt_CustomerService WHERE (Flag != 'R') ORDER BY CustomerService ASC
+2020-06-03 11:19:57 || SELECT ID, CurrencyName, Code, ExchangeRate, ERModifiedAt FROM rnt_Currency WHERE (Flag != 'R') ORDER BY ERModifiedAt ASC
+2020-06-03 11:19:57 || SELECT UR.ID, UR.FirstName, L.EmailID FROM rnt_User UR LEFT JOIN rnt_Login L ON UR.LoginID = L.ID WHERE (UR.DesignationID = '8') ORDER BY UR.FirstName ASC
+2020-06-03 11:19:57 || SELECT ID, LaundryName FROM rnt_LaundryDetails WHERE (Flag != 'R') ORDER BY LaundryName ASC
+2020-06-03 11:19:57 || SELECT ID, CategoryName FROM rnt_Category WHERE (Flag != 'R') ORDER BY CategoryName ASC
+2020-06-03 11:19:57 || SELECT ID, ContractType FROM rnt_ContractType WHERE (Flag != 'R') ORDER BY ContractType ASC
+2020-06-03 11:20:01 || SELECT ID, CategoryName FROM rnt_Category WHERE (Flag != 'R') ORDER BY CategoryName ASC
+2020-06-03 11:20:01 || SELECT ID, InventoryMove FROM rnt_InventoryMove WHERE (Flag != 'R') ORDER BY InventoryMove ASC
+2020-06-03 11:20:01 || SELECT ID, InventoryAction FROM rnt_InventoryAction WHERE (Flag != 'R') ORDER BY InventoryAction ASC
+2020-06-03 11:20:01 || SHOW COLUMNS FROM `rnt_OrderType` FROM `rntv5_dev`
+2020-06-03 11:20:01 || SELECT ID, IdentifyLinen FROM rnt_IdentifyLinen WHERE (Flag != 'R') ORDER BY IdentifyLinen ASC
+2020-06-03 11:20:01 || SELECT ID, OrderType, Description, Flag, Modified FROM rnt_OrderType WHERE (ID != '3') AND (Flag != 'R') ORDER BY OrderType ASC
+2020-06-03 11:20:02 || SELECT ID, OrderType FROM rnt_OrderType WHERE (Flag != 'R') ORDER BY OrderType ASC
+2020-06-03 11:20:02 || SELECT ID, InventoryAction FROM rnt_InventoryAction WHERE (InventoryTypeID = '4') ORDER BY InventoryAction ASC
+2020-06-03 11:20:02 || SHOW COLUMNS FROM `rnt_CustomerDetails` FROM `rntv5_dev`
+2020-06-03 11:20:02 || SELECT ID, OrderingReason FROM rnt_OrderingReason WHERE (Flag != 'R') ORDER BY OrderingReason ASC
+2020-06-03 11:20:02 || SHOW COLUMNS FROM `rnt_CustomerDetails` FROM `rntv5_dev`
+2020-06-03 11:20:02 || SELECT ID, AccountManager, CustomerTypeID, Rooms, Star, AverageOccupancyRate, CustomerName, Address, CityID, State, CountryID, Zip, LandlineNumber, Currency, LocationCount, ContractCount, Logo, CustomerContact, BillingInfo, ShippingInfo, ContractInfo, CreatedBy, Flag, Modified FROM rnt_CustomerDetails WHERE (Flag != 'R') AND (CustomerName != '') ORDER BY CustomerName ASC
+2020-06-03 11:20:02 || SELECT ID, AccountManager, CustomerTypeID, Rooms, Star, AverageOccupancyRate, CustomerName, Address, CityID, State, CountryID, Zip, LandlineNumber, Currency, LocationCount, ContractCount, Logo, CustomerContact, BillingInfo, ShippingInfo, ContractInfo, CreatedBy, Flag, Modified FROM rnt_CustomerDetails WHERE (Flag != 'R') AND (CustomerName != '') ORDER BY CustomerName ASC
+2020-06-03 11:20:02 || SHOW COLUMNS FROM `rnt_CustomerDetails` FROM `rntv5_dev`
+2020-06-03 11:20:02 || SHOW COLUMNS FROM `rnt_CustomerDetails` FROM `rntv5_dev`
+2020-06-03 11:20:02 || SELECT ID, AccountManager, CustomerTypeID, Rooms, Star, AverageOccupancyRate, CustomerName, Address, CityID, State, CountryID, Zip, LandlineNumber, Currency, LocationCount, ContractCount, Logo, CustomerContact, BillingInfo, ShippingInfo, ContractInfo, CreatedBy, Flag, Modified FROM rnt_CustomerDetails WHERE (Flag != 'R') AND (CustomerName != '') ORDER BY CustomerName ASC
+2020-06-03 11:20:02 || SHOW COLUMNS FROM `rnt_LinenSupplierDetails` FROM `rntv5_dev`
+2020-06-03 11:20:02 || SHOW COLUMNS FROM `rnt_LinenSupplierDetails` FROM `rntv5_dev`
+2020-06-03 11:20:02 || SELECT ID, AccountManager, CustomerTypeID, Rooms, Star, AverageOccupancyRate, CustomerName, Address, CityID, State, CountryID, Zip, LandlineNumber, Currency, LocationCount, ContractCount, Logo, CustomerContact, BillingInfo, ShippingInfo, ContractInfo, CreatedBy, Flag, Modified FROM rnt_CustomerDetails WHERE (Flag != 'R') AND (CustomerName != '') ORDER BY CustomerName ASC
+2020-06-03 11:20:02 || SELECT ID, DeliveryManager, LinenSupplierName, Address, CityID, State, CountryID, Zip, LandlineNumber, Currency, Logo, Contact, BillingInfo, ContractInfo, CreatedBy, Flag, Modified FROM rnt_LinenSupplierDetails WHERE (Flag != 'R') AND (LinenSupplierName != '') ORDER BY LinenSupplierName ASC
+2020-06-03 11:20:02 || SELECT ID, DeliveryManager, LinenSupplierName, Address, CityID, State, CountryID, Zip, LandlineNumber, Currency, Logo, Contact, BillingInfo, ContractInfo, CreatedBy, Flag, Modified FROM rnt_LinenSupplierDetails WHERE (Flag != 'R') AND (LinenSupplierName != '') ORDER BY LinenSupplierName ASC
+2020-06-03 11:20:03 || SELECT ID, InventoryAction FROM rnt_InventoryAction WHERE (Flag != 'R') AND (InventoryTypeID = '1') ORDER BY InventoryAction ASC
+2020-06-03 11:20:03 || SELECT ID, WarehouseName FROM rnt_Warehouse WHERE (Flag != 'R') ORDER BY WarehouseName ASC
+2020-06-03 11:20:03 || SELECT ID, WarehouseName FROM rnt_Warehouse WHERE (Flag != 'R') ORDER BY WarehouseName ASC
+2020-06-03 11:20:03 || SELECT ID, WarehouseName FROM rnt_Warehouse WHERE (Flag != 'R') ORDER BY WarehouseName ASC
+2020-06-03 11:20:03 || SELECT ID, WarehouseName FROM rnt_Warehouse WHERE (Flag != 'R') ORDER BY WarehouseName ASC
+2020-06-03 11:20:03 || SELECT ID, WarehouseName FROM rnt_Warehouse WHERE (Flag != 'R') ORDER BY WarehouseName ASC
+2020-06-03 11:20:03 || SELECT ID, InventoryAction FROM rnt_InventoryAction WHERE (Flag != 'R') AND (InventoryTypeID = '3') ORDER BY InventoryAction ASC
+2020-06-03 11:20:03 || SELECT ID, InventoryAction FROM rnt_InventoryAction WHERE (Flag != 'R') AND (InventoryTypeID = '2') ORDER BY InventoryAction ASC
+2020-06-03 11:20:03 || SELECT ID, InventoryAction FROM rnt_InventoryAction WHERE (Flag != 'R') ORDER BY InventoryAction ASC
+2020-06-03 11:20:03 || SELECT ID, InventoryAction FROM rnt_InventoryAction WHERE (Flag != 'R') ORDER BY InventoryAction ASC
+2020-06-03 11:20:04 || SHOW COLUMNS FROM `rnt_LinenSupplierDetails` FROM `rntv5_dev`
+2020-06-03 11:20:04 || SELECT ID, InventoryAction FROM rnt_InventoryAction WHERE (Flag != 'R') ORDER BY InventoryAction ASC
+2020-06-03 11:20:04 || SELECT ID, DeliveryManager, LinenSupplierName, Address, CityID, State, CountryID, Zip, LandlineNumber, Currency, Logo, Contact, BillingInfo, ContractInfo, CreatedBy, Flag, Modified FROM rnt_LinenSupplierDetails WHERE (Flag != 'R') AND (LinenSupplierName != '') ORDER BY LinenSupplierName ASC
+2020-06-03 11:20:04 || SHOW COLUMNS FROM `rnt_LinenSupplierDetails` FROM `rntv5_dev`
+2020-06-03 11:20:04 || SHOW COLUMNS FROM `rnt_LinenSupplierDetails` FROM `rntv5_dev`
+2020-06-03 11:20:04 || SELECT ID, DeliveryManager, LinenSupplierName, Address, CityID, State, CountryID, Zip, LandlineNumber, Currency, Logo, Contact, BillingInfo, ContractInfo, CreatedBy, Flag, Modified FROM rnt_LinenSupplierDetails WHERE (Flag != 'R') AND (LinenSupplierName != '') ORDER BY LinenSupplierName ASC
+2020-06-03 11:20:04 || SELECT ID, DeliveryManager, LinenSupplierName, Address, CityID, State, CountryID, Zip, LandlineNumber, Currency, Logo, Contact, BillingInfo, ContractInfo, CreatedBy, Flag, Modified FROM rnt_LinenSupplierDetails WHERE (Flag != 'R') AND (LinenSupplierName != '') ORDER BY LinenSupplierName ASC
+2020-06-03 11:20:04 || SHOW COLUMNS FROM `rnt_CustomerDetails` FROM `rntv5_dev`
+2020-06-03 11:20:04 || SELECT ID, DeliveryManager, LinenSupplierName, Address, CityID, State, CountryID, Zip, LandlineNumber, Currency, Logo, Contact, BillingInfo, ContractInfo, CreatedBy, Flag, Modified FROM rnt_LinenSupplierDetails WHERE (Flag != 'R') AND (LinenSupplierName != '') ORDER BY LinenSupplierName ASC
+2020-06-03 11:20:04 || SELECT ID, AccountManager, CustomerTypeID, Rooms, Star, AverageOccupancyRate, CustomerName, Address, CityID, State, CountryID, Zip, LandlineNumber, Currency, LocationCount, ContractCount, Logo, CustomerContact, BillingInfo, ShippingInfo, ContractInfo, CreatedBy, Flag, Modified FROM rnt_CustomerDetails WHERE (Flag != 'R') AND (CustomerName != '') ORDER BY CustomerName ASC
+2020-06-03 11:20:04 || SHOW COLUMNS FROM `rnt_QuoteGeneration` FROM `rntv5_dev`
+2020-06-03 11:20:04 || SHOW COLUMNS FROM `rnt_QuoteGeneration` FROM `rntv5_dev`
+2020-06-03 11:20:04 || SELECT ID, QuoteID, OstID, QuoteStatus, CustomerName, CustomerID, IsExistingCustomer, CustomerTypeID, QuoteTypeID, SPName, HOCountryID, POBox, HOPhone, HOLocation, HOCityID, BCName, BCPhone, BCEmail, ACName, ACPhone, ACEmail, FDWeekDays, FDWeekEnds, RoomCount, PARLevelExpected, OccupancyConsidering, PTMargin, QuoteValidity, Currency, FileName, Flag, Modified FROM rnt_QuoteGeneration WHERE (CustomerName != '')
+2020-06-03 11:20:04 || SELECT ID, QuoteID, OstID, QuoteStatus, CustomerName, CustomerID, IsExistingCustomer, CustomerTypeID, QuoteTypeID, SPName, HOCountryID, POBox, HOPhone, HOLocation, HOCityID, BCName, BCPhone, BCEmail, ACName, ACPhone, ACEmail, FDWeekDays, FDWeekEnds, RoomCount, PARLevelExpected, OccupancyConsidering, PTMargin, QuoteValidity, Currency, FileName, Flag, Modified FROM rnt_QuoteGeneration WHERE (CustomerName != '') AND (QuoteStatus = 'N') GROUP BY CustomerName
+2020-06-03 11:58:30 || SELECT ID, CountryName FROM TABLE_PREFIXCountry WHERE (Flag != 'R') ORDER BY CountryName ASC
+2020-06-03 12:12:48 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC
+2020-06-03 13:00:00 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC
+2020-06-03 13:02:33 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC
+2020-06-03 13:03:46 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC
+2020-06-03 13:05:05 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC
+2020-06-03 13:05:46 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC
+2020-06-03 13:08:17 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC
+2020-06-03 13:10:01 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC
+2020-06-03 13:11:52 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC
+2020-06-03 13:17:45 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC
+2020-06-03 13:22:59 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC
+2020-06-03 13:23:44 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC
+2020-06-03 13:24:03 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC
+2020-06-03 13:55:34 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC
+2020-06-03 14:50:32 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC
+2020-06-03 14:59:09 || SHOW COLUMNS FROM `rnt_email` FROM `test`
+2020-06-03 14:59:09 || INSERT INTO rnt_email (Modified) VALUES ('2020-06-03 14:59:09');
+2020-06-03 15:06:16 || SHOW COLUMNS FROM `rnt_email` FROM `test`
+2020-06-03 15:06:16 || INSERT INTO rnt_email (Modified) VALUES ('2020-06-03 15:06:16');
+2020-06-03 15:07:24 || SHOW COLUMNS FROM `rnt_email` FROM `test`
+2020-06-03 15:07:24 || INSERT INTO rnt_email (ID, Feedback, EmailID, Name, Summary, Type, Modified) VALUES ('0', 'jhgh', 'nbjhb@kjh.kj', 'kjsc', 'sdjhs', '', '2020-06-03 15:07:24');
+2020-06-03 15:12:46 || SHOW COLUMNS FROM `rnt_email` FROM `test`
+2020-06-03 15:12:46 || INSERT INTO rnt_email (ID, Feedback, EmailID, Name, Summary, CreatedAt, Modified) VALUES ('0', 'sdf', 'you@mail.com', 'you', 'summ', '2020-06-03 15:12:46', '2020-06-03 15:12:46');
+2020-06-03 15:14:02 || SHOW COLUMNS FROM `rnt_email` FROM `test`
+2020-06-03 15:14:02 || INSERT INTO rnt_email (ID, Feedback, EmailID, Name, Summary, CreatedAt, Modified) VALUES ('0', 'feedback', 'mail@mail.com', 'mail', 'maill', '2020-06-03 15:14:02', '2020-06-03 15:14:02');
+2020-06-03 15:14:07 || SHOW COLUMNS FROM `rnt_email` FROM `test`
+2020-06-03 15:14:08 || INSERT INTO rnt_email (ID, Feedback, EmailID, Name, Summary, CreatedAt, Modified) VALUES ('0', 'feedback', 'mail@mail.com', 'mail', 'maill', '2020-06-03 15:14:07', '2020-06-03 15:14:08');
+2020-06-03 15:15:19 || SHOW COLUMNS FROM `rnt_email` FROM `test`
+2020-06-03 15:15:19 || INSERT INTO rnt_email (ID, Feedback, EmailID, Name, Summary, CreatedAt, Modified) VALUES ('0', 'fds', 'sdf@dsf.sdf', 'ljh', 'nj', '2020-06-03 15:15:19', '2020-06-03 15:15:19');
+2020-06-03 15:15:27 || SHOW COLUMNS FROM `rnt_email` FROM `test`
+2020-06-03 15:15:27 || INSERT INTO rnt_email (ID, Feedback, EmailID, Name, Summary, CreatedAt, Modified) VALUES ('0', 'fds', 'sdf@dsf.sdf', 'ljh', 'nj', '2020-06-03 15:15:27', '2020-06-03 15:15:27');
+2020-06-03 15:19:06 || SHOW COLUMNS FROM `rnt_email` FROM `test`
+2020-06-03 15:19:06 || INSERT INTO rnt_email (ID, Feedback, EmailID, Name, Summary, CreatedAt, Modified) VALUES ('0', 'asd', 'lkj@lkj.lkj', 'jlkj', 'kljlk', '2020-06-03 15:19:06', '2020-06-03 15:19:06');
+2020-06-03 15:19:09 || SHOW COLUMNS FROM `rnt_email` FROM `test`
+2020-06-03 15:19:09 || INSERT INTO rnt_email (ID, Feedback, EmailID, Name, Summary, CreatedAt, Modified) VALUES ('0', 'asd', 'lkj@lkj.lkj', 'jlkj', 'kljlk', '2020-06-03 15:19:09', '2020-06-03 15:19:09');
+2020-06-03 15:20:42 || SHOW COLUMNS FROM `rnt_email` FROM `test`
+2020-06-03 15:20:43 || INSERT INTO rnt_email (ID, Feedback, EmailID, Name, Summary, CreatedAt, Modified) VALUES ('0', 'bvcxv', 'bncb@fg.er', 'Lkjklj', 'jk', '2020-06-03 15:20:42', '2020-06-03 15:20:43');

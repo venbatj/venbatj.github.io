@@ -1,0 +1,66 @@
+<div class="ui-page compact">
+    <div class="portlet light mb-3">
+        <div class="portlet-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="top-control-bar">
+                    <h3 style="text-align: left;">
+                        <button type="button" ng-click="backToInventoryPage()" class="btn blue fa fa-reply-all"> Back</button>
+                        <strong>Customer PO Request</strong></h3>
+                        <!-- <div class="col-xs-2">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <select id="inventory-supplier" name="Supplier" class="form-control select2"
+                                    ng-model="Inventory.SupplierID" ng-change="onListingChange();onSupplierChange(Inventory.SupplierID)"> 
+                                    <option></option>
+                                    <option value="CustomerAll">All</option>
+                                    <option value="{{Ils.ID}}" ng-repeat="Ils in SupplierList">{{Ils.LinenSupplierName}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <select id="customer-id" name="CustomerID" class="form-control select2" required
+                                    ng-model="Inventory.CustomerID" ng-change="onListingChange();onCustomerChange(Inventory.CustomerID)"> 
+                                    <option></option>
+                                    <option value="CustomerAll">All</option>
+                                        <option value="{{Ct.ID}}" ng-repeat="Ct in CustomerList">{{Ct.CustomerName}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-2">
+                            <a tooltip="Search"><button class="fa fa-search btn green" ng-click="Searching()">Search</button></a>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portlet light">
+        <div class="portlet-body">
+            <table id="view-customer-list" class="table table-striped table-bordered table-hover dt-responsive" width="100%">
+                <thead>
+                    <tr>
+                        <!-- <td class="check-box-column">
+                            <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" for="check-all-inventory-details">
+                                <input type="checkbox" class="checkboxes check-all" value="1" id="check-all-inventory-details"/>
+                                <span></span>
+                            </label>
+                        </td> -->
+                        <td>Customer Name</td>
+                        <td>PO Request Date</td>
+                        <td>PO Sent Date by Finance</td>
+                        <td>PO Number</td>
+                        <td>PO Sent to</td>
+                        <td>Action</td>
+                        <td>Status</td>
+                        <td>Attachment</td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>  
+</div>

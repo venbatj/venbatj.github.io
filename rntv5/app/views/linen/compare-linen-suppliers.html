@@ -1,0 +1,109 @@
+
+<div class="ui-page compact">
+    <div class="portlet light mb-3">
+        <div class="portlet-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>
+                        <button ng-click="BackIndexPage()" class="btn blue fa fa-reply-all"> Back</button>
+                        <strong>Compare Linen Suppliers</strong>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui-page">
+    <div class="portlet light mb-3">
+    <div class ="row">
+        <form name="FrmCompareSuplier">
+            <div class="col-md-12">
+                <div class="portlet light mb-3">
+                        <div class="form-body">
+                            <div class ="row">
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label>Category</label>
+                                        <div class="input-group">
+                                            <select id="category" name="Category" class="form-control select2"
+                                            ng-model="ComparelinenSupplier.CategoryID" ng-change="onCategoryChange(ComparelinenSupplier.CategoryID)" > 
+                                                <option value="{{Category.ID}}" ng-repeat="Category in CategoryList">{{Category.CategoryName}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label>Product</label>
+                                        <div class="input-group">
+                                            <select id="product" name="Product" class="form-control select2"
+                                            ng-model="ComparelinenSupplier.ProductID" ng-change="onProductChange(ComparelinenSupplier.ProductID)"  > 
+                                                <option value="{{Product.ID}}" ng-repeat="Product in ProductList">{{Product.ProductName}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label>Variant</label>
+                                        <div class="input-group">
+                                            <select id="variant" name="Variant" class="form-control select2"
+                                            ng-model="ComparelinenSupplier.VariantID" ng-change="onVariantChange(ComparelinenSupplier.VariantID)"> 
+                                                <option value="{{Variant.VariantID}}" ng-repeat="Variant in VariantList">{{Variant.VariantName}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label>&nbsp;</label>
+                                        <div class="action-group">
+                                            <button type="button" ng-click="ComparisonData(ComparelinenSupplier.CategoryID, ComparelinenSupplier.ProductID, ComparelinenSupplier.VariantID)" class="btn blue" ng-disabled="FrmCompareSuplier.$invalid">
+                                                <i class="fa fa-balance-scale"> Compare Linen</i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>					
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="portlet light mb-3">
+                <div class="portlet-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="compare-linen-supplier">
+                            <thead>
+                                <tr>
+                                    <th> Linen Supplier </th>
+                                    <th> Category </th>
+                                    <th> Product </th>
+                                    <th> Variant </th>
+                                    <th> Cost of Per Linen </th>
+                                    <th> Feedback/ Rating </th>
+                                </tr>
+                            </thead> 
+                            <tbody>
+                                <tr ng-repeat="Data in LinenSupplierData"> 
+                                    <td>{{Data.LinenSupplierName}}</td>
+                                    <td >{{Data.CategoryName}}</td>
+                                    <td >{{Data.ProductName}}</td>
+                                    <td >{{Data.VariantName}}</td>
+                                    <td>{{Data.Cost}}</td>
+                                    <td>{{Data.FeedBack}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label>&nbsp;</label>
+                                <div class="action-group">
+                                    <button type="button" ng-click="Clearcomparison(FrmCompareSuplier)" class="btn blue fa fa-close"> Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>	
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>

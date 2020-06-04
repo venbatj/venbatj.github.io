@@ -1,0 +1,15 @@
+2020-06-03 11:58:30 || SELECT ID, CountryName FROM TABLE_PREFIXCountry WHERE (Flag != 'R') ORDER BY CountryName ASC|||ERROR :Table 'test.table_prefixcountry' doesn't exist
+2020-06-03 12:12:48 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC|||ERROR :Table 'test.rnt_country' doesn't exist
+2020-06-03 13:00:00 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC|||ERROR :Table 'test.rnt_country' doesn't exist
+2020-06-03 13:02:33 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC|||ERROR :Table 'test.rnt_country' doesn't exist
+2020-06-03 13:03:46 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC|||ERROR :Table 'test.rnt_country' doesn't exist
+2020-06-03 13:05:05 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC|||ERROR :Table 'test.rnt_country' doesn't exist
+2020-06-03 13:05:46 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC|||ERROR :Table 'test.rnt_country' doesn't exist
+2020-06-03 13:08:17 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC|||ERROR :Table 'test.rnt_country' doesn't exist
+2020-06-03 13:10:01 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC|||ERROR :Table 'test.rnt_country' doesn't exist
+2020-06-03 13:11:52 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC|||ERROR :Table 'test.rnt_country' doesn't exist
+2020-06-03 13:17:45 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC|||ERROR :Table 'test.rnt_country' doesn't exist
+2020-06-03 13:22:59 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC|||ERROR :Table 'test.rnt_country' doesn't exist
+2020-06-03 13:23:44 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC|||ERROR :Table 'test.rnt_country' doesn't exist
+2020-06-03 13:24:03 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC|||ERROR :Table 'test.rnt_country' doesn't exist
+2020-06-03 13:55:34 || SELECT ID, CountryName FROM rnt_Country WHERE (Flag != 'R') ORDER BY CountryName ASC|||ERROR :Table 'test.rnt_country' doesn't exist

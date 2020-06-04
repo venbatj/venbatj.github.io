@@ -1,0 +1,239 @@
+<div class="ui-page dashboard">
+    <div class="portlet light">
+        <div class="portlet-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- <h3>YOUR <strong>HEWI</strong> PLAN</h3> -->
+                    <h3>Coming Soon</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="row MT-10  score-hightlight">
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <h3>My Monthly Enterprise Score</h3>
+            </div>
+            <div class="col-md-6">
+                 <ul class="score-hightlight-text">
+                    <li class="score-color-good">Good</li>
+                    <li class="score-color-moderate">Moderate</li>
+                    <li class="score-color-bad">Bad</li>
+                </ul>
+            </div>
+        </div>
+    </div> -->
+    <!-- STARTS DASHBOARD SCORE -->
+    <!-- <div class="dashboard-score-table MT-10">
+        <div class="dashboard-score-table-row"> -->
+            <!-- STARTS CUSTOMERS -->
+           <!--  <div class="dashboard-score-table-cell ODD">
+                <div class="cell-body vitals-green">
+                    <div class="title"><span><i class="fa fa-heartbeat"></i></span> Customers</div>
+                    <div class="info-container top">
+                        21
+                    </div> 
+                     <div class="info-container info">
+                        <span><i class="fa fa-heartbeat"></i></span> 4%
+                    </div>
+                    <div class="info-container bottom">
+                        <div class="bottom-icon"> <i class="fa fa-caret-up green-color"></i> </div>
+                        <div class="bottom-icon"><span> <span class="green-color">4%</span> from last week </span></div>
+                    </div>                      
+                </div>
+            </div> -->
+            <!-- STARTS CUSTOMERS -->
+            <!-- <div class="dashboard-score-table-cell EVEN">
+                <div class="cell-body vitals-green">
+                    <div class="title"><span><i class="fa fa-heartbeat"></i></span> Laundries </div>
+                    <div class="info-container top">
+                        8
+                    </div> 
+                     <div class="info-container info">
+                        <span><i class="fa fa-heartbeat"></i></span> 7%
+                    </div>
+                    <div class="info-container bottom">
+                        <div class="bottom-icon"> <i class="fa fa-caret-up green-color"></i> </div>
+                        <div class="bottom-icon"><span> <span class="green-color">7%</span> from last week </span></div>
+                    </div>                      
+                </div>
+            </div> -->
+            <!-- STARTS CUSTOMERS -->
+            <!-- <div class="dashboard-score-table-cell ODD">
+                <div class="cell-body vitals-green">
+                    <div class="title"><span><i class="fa fa-heartbeat"></i></span> Vendors </div>
+                    <div class="info-container top">
+                        15
+                    </div> 
+                     <div class="info-container info">
+                        <span><i class="fa fa-heartbeat"></i></span> 9%
+                    </div>
+                    <div class="info-container bottom">
+                        <div class="bottom-icon"> <i class="fa fa-caret-up green-color"></i> </div>
+                        <div class="bottom-icon"><span> <span class="green-color">9%</span> from last week </span></div>
+                    </div>                      
+                </div>
+            </div> -->
+            <!-- STARTS LINEN -->
+           <!--  <div class="dashboard-score-table-cell EVEN">
+                <div class="cell-body vitals-green">
+                    <div class="title red-color"><span><i class="fa fa-heartbeat red-color"></i></span> Linen (Pcs)</div>
+                    <div class="info-container top">
+                        <span class="red-color">1400</span>
+                        <div class="LaunProp"> <span class="red-color"> Laundry – 750 |</span>  <span class="red-color"> Property - 650 </span></div>
+                    </div> 
+                     <div class="info-container info">
+                        <span><i class="fa fa-heartbeat"></i></span> 5%
+                    </div>
+                    <div class="info-container bottom">
+                        <div class="bottom-icon"> <i class="fa fa-caret-down red-color"></i> </div>
+                        <div class="bottom-icon"><span> <span class="red-color">5%</span> from yesterday </span></div>
+                    </div>                      
+                </div>
+            </div> -->
+            <!-- STARTS REVENUE -->
+            <!-- <div class="dashboard-score-table-cell ODD">
+                <div class="cell-body vitals-green">
+                    <div class="title"><span><i class="fa fa-heartbeat"></i></span> Revenue </div>
+                    <div class="info-container top">
+                        AED 4000
+                    </div> 
+                    <div class="info-container info">
+                        <span><i class="fa fa-heartbeat"></i></span> 2%
+                    </div>
+                    <div class="info-container bottom">
+                        <div class="bottom-icon"> <img class="user-avatar-icon" src="../assets/layout/img/avatar9.jpg"> </div>
+                        <div class="bottom-icon"><span> 2% from last week </span></div>
+                    </div>                      
+                </div>
+            </div> -->
+            <!-- ADD SECTION -->
+           <!--  <div class="dashboard-score-table-cell OverallRank EVEN">
+                <div class="cell-body vitals-green">
+                    <div class="title text-white"><i class="fa fa-heartbeat"></i>
+                    <div> Revenue </div>
+                    </div>
+                    <div class="info-container top green-color">
+                        AED 4000
+                    </div>
+                    <div class="info-container info text-center">
+                        <span><i class="fa fa-heartbeat"></i></span> 2%
+                    </div>
+                    <div class="info-container bottom">
+                        <div class="bottom-icon"> <i class="fa fa-caret-up green-color"></i> </div>
+                        <div class="bottom-icon"><span> <span class="green-color">2%</span> from yesterday </span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row MT-10">
+        <div class="col-md-12">
+            <h3>My Users</h3>
+        </div>
+    </div> -->
+
+    <!-- STARTS DASHBOARD SCORE -->
+    <!-- <div class="dashboard-score-table MT-10">
+        <div class="dashboard-score-table-row"> -->
+            <!-- STARTS CUSTOMERS -->
+            <!-- <div class="dashboard-score-table-cell ODD">
+                <div class="cell-body vitals-green">
+                    <div class="title red-color"><span><i class="fa fa-heartbeat red-color"></i></span> Tickets past due </div>
+                    <div class="info-container top red-color">
+                        8
+                    </div> 
+                    <div class="info-container bottom">
+                        <div class="bottom-icon"> <i class="fa fa-caret-up green-color"></i> </div>
+                        <div class="bottom-icon"><span> <span class="green-color">7%</span> from last week </span></div>
+                    </div>                      
+                </div>
+            </div> -->
+            <!-- STARTS CUSTOMERS -->
+            <!-- <div class="dashboard-score-table-cell EVEN">
+                <div class="cell-body vitals-green">
+                    <div class="title green-color"><span><i class="fa fa-heartbeat green-color"></i></span> Tickets closed today </div>
+                    <div class="info-container top green-color">
+                        15
+                    </div> 
+                    <div class="info-container bottom">
+                        <div class="bottom-icon"> <i class="fa fa-caret-up green-color"></i> </div>
+                        <div class="bottom-icon"><span> <span class="green-color">4%</span> from last week </span></div>
+                    </div>                      
+                </div>
+            </div> -->
+            <!-- STARTS CUSTOMERS -->
+            <!-- <div class="dashboard-score-table-cell ODD">
+                <div class="cell-body vitals-green">
+                    <div class="title violet-color"><span><i class="fa fa-heartbeat violet-color"></i></span> Tickets raised today </div>
+                    <div class="info-container top violet-color">
+                        15
+                    </div> 
+                    <div class="info-container bottom">
+                        <div class="bottom-icon"> <i class="fa fa-caret-up green-color"></i> </div>
+                        <div class="bottom-icon"><span> <span class="green-color">7%</span> from last week </span></div>
+                    </div>                      
+                </div>
+            </div> -->
+            <!-- STARTS LINEN -->
+            <!-- <div class="dashboard-score-table-cell EVEN">
+                <div class="cell-body vitals-green">
+                    <div class="title"><span><i class="fa fa-heartbeat"></i></span>  Total Tickets today </div>
+                    <div class="info-container top">
+                        40
+                    </div> 
+                    <div class="info-container bottom">
+                        <div class="bottom-icon"> <i class="fa fa-caret-up green-color"></i> </div>
+                        <div class="bottom-icon"><span> <span class="green-color">2%</span> from yesterday </span></div>
+                    </div>                      
+                </div>
+            </div> -->
+            <!-- STARTS REVENUE -->
+            <!-- <div class="dashboard-score-table-cell ODD">
+                <div class="cell-body vitals-green">
+                    <div class="title"><span><i class="fa fa-heartbeat"></i></span> CSAT </div>
+                    <div class="info-container top">
+                        <img class="MB-20" src="../assets/global/img/page/dasboard/digital.png" width="70" height="37">
+                        89%
+                    </div> 
+                    <div class="info-container bottom">
+                        <div class="bottom-icon"> <i class="fa fa-caret-up green-color"></i> </div>
+                        <div class="bottom-icon"><span> <span class="green-color">15%</span> from last week </span></div>
+                    </div>                      
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- STARTS DASHBOARD SCORE -->
+    <!-- <div class="dashboard-score-table MT-20" style="margin-bottom: 100px;">
+        <div class="dashboard-score-table-row"> -->
+            <!-- STARTS CUSTOMERS -->
+            <!-- <div class="dashboard-score-table-cell EVEN">
+                <div class="cell-body vitals-green">
+                    <div class="title"><span><i class="fa fa-heartbeat"></i></span> Invoicing: How are we Doing this month? </div>
+                    <div class="info-container top">
+                        <img class="MB-20" src="../assets/global/img/page/dasboard/scoure-rat.png">
+                    </div> 
+                    <div class="info-container bottom">
+                        <div class="bottom-icon"> <i class="fa fa-caret-up green-color"></i> </div>
+                        <div class="bottom-icon"><span> <span class="green-color">12%</span> from last week </span></div>
+                    </div>                      
+                </div>
+            </div> -->
+            <!-- STARTS CUSTOMERS -->
+            <!-- <div class="dashboard-score-table-cell ODD">
+                <div class="cell-body vitals-green">
+                    <div class="title"><span><i class="fa fa-heartbeat"></i></span> Inflow Vs Outflow: How are we Doing monthly?     </div>
+                    <div class="info-container top">
+                        <img class="MB-20" src="../assets/global/img/page/dasboard/chart-rat.png">
+                    </div> 
+                    <div class="info-container bottom">
+                        <div class="bottom-icon"> <i class="fa fa-caret-up green-color"></i> </div>
+                        <div class="bottom-icon"><span> <span class="green-color">10%</span> from last week </span></div>
+                    </div>                      
+                </div>
+            </div>
+        </div>
+    </div> -->
+</div>

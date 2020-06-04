@@ -1,0 +1,186 @@
+<div class="portlet-body">
+	<div class="form-body">
+        <div class="row">
+            <!-- <div class="col-sm-12 col-md-5">
+                <table id="facility-details-data-table" class="table table-striped table-bordered table-hover dt-responsive" width="100%">
+                    <thead>
+                        <tr>
+                            <td class="check-box-column">
+                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" for="check-all-laundry-facility">
+                                    <input type="checkbox" class="checkboxes check-all" value="1" id="check-all-laundry-facility"/>
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td>Laundry Size</td>
+                            <td># Of Vehicles</td>
+                            <td>Types Of Customer Services</td>
+                            <td class="action-column">Edit</td>
+                        </tr>
+                    </thead>
+                </table>
+            </div> -->
+            <!-- <div class="col-sm-12 col-md-7"> -->
+                <form name="FormFacilityInfo" class="horizontal-form" method="post">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group" ng-class="{'has-error' : FormFacilityInfo.LaundrySize.$invalid && FormFacilityInfo.LaundrySize.$touched}">
+                                <label class="fld-required">Laundry Size</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="LaundrySize" ng-paste="paste($event)" ng-keypress="filterValue($event)" ng-model="FacilityInfo.LaundrySize" required>
+                                    <p ng-show="FormFacilityInfo.LaundrySize.$invalid && FormFacilityInfo.LaundrySize.$touched" class="help-block">This field is required.</p> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label># Of Employees</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control"  ng-paste="paste($event)" ng-keypress="filterValue($event)" ng-model="FacilityInfo.EmployeeCount" > 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group" ng-class="{'has-error' : FormFacilityInfo.VehicleCount.$invalid && FormFacilityInfo.VehicleCount.$touched}">
+                                <label class="fld-required"># Of Vehicles</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control"name="VehicleCount" ng-paste="paste($event)" ng-keypress="filterValue($event)" ng-model="FacilityInfo.VehicleCount" required>
+                                    <p ng-show="FormFacilityInfo.VehicleCount.$invalid && FormFacilityInfo.VehicleCount.$touched" class="help-block">This field is required.</p> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group" ng-class="{'has-error' : FormFacilityInfo.CustomerServiceID.$invalid && FormFacilityInfo.CustomerServiceID.$touched}">
+                                <label class="fld-required">Types of Customers Services</label>
+                                <div class="input-group">
+                                    <select id="customer-service" name="CustomerServiceID" class="form-control select2" ng-model="FacilityInfo.CustomerServiceID" multiple="multiple" required> 
+                                        <option value="{{Cs.CustomerService}}" ng-repeat="Cs in TypesOfCustomerServices">{{Cs.CustomerService}}</option>
+                                    </select>
+                                    <p ng-show="FormFacilityInfo.CustomerServiceID.$invalid && FormFacilityInfo.CustomerServiceID.$touched" class="help-block">This field is required.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group" ng-class="{'has-error' : FormFacilityInfo.ChemicalName.$invalid && FormFacilityInfo.ChemicalName.$touched}">
+                                <label class="fld-required">Chemical Name</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="ChemicalName" id="ChemicalName" ng-model="FacilityInfo.ChemicalName" required> 
+                                    <p ng-show="FormFacilityInfo.ChemicalName.$invalid && FormFacilityInfo.ChemicalName.$touched" class="help-block">This field is required.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label>Existing Infrastructure</label>
+                                <div class="input-group file-group" id="facility-upload-ctrl" ng-init="initInfrastructure()">
+                                    <div>
+                                        <input type="file" class="file-pick"  name="Infrastructure" accept="image/x-png,image/jpeg"/>
+                                    </div>
+                                    <input type="text" class="form-control" readonly/>
+                                    <div class="file-controls">
+                                        <i title="Select" class="fa fa-folder-open font-blue-ebonyclay up-btn"></i>
+                                        <i title="Change" class="fa fa-edit font-green-jungle ch-btn"></i>
+                                        <i title="Remove" class="fa fa-trash font-red-mint rm-btn" ng-click="removeLogo()"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label>Location Picker</label>
+                                <div class="input-group">
+                                        <a href="https://maps.google.com/" target="_blank">
+                                            <button type="button" class="btn blue" ng-model="FacilityInfo.GeoCode">Google Map</button></a>
+                                        </div>
+                            </div>
+                        </div>   -->
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label>Landmark</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" ng-model="FacilityInfo.Landmark"> 
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label class="fld-required">Dosage</label>
+                                <div class="mt-radio-inline">
+                                    <label class="mt-radio">
+                                    <input type="radio" name="optionsRadios1" id="Auto" value="A" 
+                                    ng-model="FacilityInfo.Dosage" required> Auto
+                                        <span></span>
+                                    </label>
+                                    <label class="mt-radio">
+                                    <input type="radio" name="optionsRadios2" id="Manual" value="M"
+                                    ng-model="FacilityInfo.Dosage" required> Manual
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label>Laundry Facility Picture</label>
+                                <div class="input-group file-group" id="facility-logo-ctrl" ng-init="initfacilityPicker()">
+                                    <div>
+                                        <input type="file" ng-model="LaundryImg" class="file-pick img" name="FacilityImg" accept="image/x-png,image/jpeg"/>
+                                        <img/>
+                                    </div>
+                                    <div>
+                                        <button class="btn up-btn">Select</button>
+                                        <button class="btn ch-btn">Change</button>
+                                        <button class="btn rm-btn" ng-click="removeLogo()">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label>&nbsp;</label>
+                                <div class="action-group">
+                                    <button type="button" ng-click="saveFacilityDetail(FormFacilityInfo)" class="btn blue" 
+                                    ng-disabled="FormFacilityInfo.$invalid"><i class="fa fa-save"> Save</i></button>
+                                    <button type="button" ng-click="clearFacilityDetail(FormFacilityInfo)" class="btn green">
+                                        <i class="fa fa-close"> Clear</i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            <!-- </div> -->
+        </div>
+    </div>
+</div>
+<div class="portlet-body">
+    <div class="form-body">
+        <div class="portlet light form-view mb-3" >
+            <div class="portlet-title">
+                <div class="caption">
+                    <h3 class="UserName">
+                        Facility Info
+                    </h3>
+                </div>					
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <table id="facility-details-data-table" class="table table-striped table-bordered table-hover dt-responsive" width="100%">
+                        <thead>
+                            <tr>
+                                <td class="check-box-column">
+                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" for="check-all-laundry-facility">
+                                        <input type="checkbox" class="checkboxes check-all" value="1" ng-model="selectAll" id="check-all-laundry-facility"/>
+                                        <span></span>
+                                    </label>
+                                </td>
+                                <td>Laundry Size</td>
+                                <td># Of Vehicles</td>
+                                <td>Types Of Customer Services</td>
+                                <td class="action-column">Edit</td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

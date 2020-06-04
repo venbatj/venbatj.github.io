@@ -1,0 +1,119 @@
+<div class="ui-page">
+    <div class="portlet light mb-3">
+        <div class="form-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3><strong>Product Costing</strong></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portlet light mb-3">
+        <div class="portlet light">
+            <div class="portlet-body">
+                <div class="table-responsive">
+                    <form name="FormProductPricing" class="horizontal-form" method="post">
+                        <div class="form-body">
+                            <div class="portlet-body">
+                                <!-- <div class="col-xs-12 col-md-3">
+                                    <div class="form-group">
+                                        <label>Product</label>
+                                        <div class="input-group">
+                                            <select id="product" name="product" ng-model="ProductPricing.Product" class="form-control select2" required> 
+                                                <option value="{{P.ID}}" ng-repeat="P in productList">{{P.ProductName}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label>Duties & Local Transportation</label>
+                                        <div class="input-group">
+                                            <input type="text" id="duties-local-transportation" name="DutiesLocalTransportation" ng-model="ProductPricingData.DutiesLocalTransportation" class="form-control"> 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label>Recovery Wash Period for the cost of Linen</label>
+                                        <div class="input-group">
+                                            <input type="text" id="wash-wash-period" name="RecoveryWashPeriod" ng-model="ProductPricingData.RecoveryWashPeriod" class="form-control"> 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label>Interest</label>
+                                        <div class="input-group">
+                                            <input type="text" id="interest" name="Interest" ng-model="ProductPricingData.Interest" class="form-control"> 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label>Total No of Pieces</label>
+                                        <div class="input-group">
+                                            <input type="text" id="pieces" name="PiecesCountInWarehouse" ng-model="ProductPricingData.PiecesCountInWarehouse" class="form-control"> 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label>Cost of Warehouse/ Year</label>
+                                        <div class="input-group">
+                                            <input type="text" id="warehouse-cost" name="WarehouseCostPerYear" ng-model="ProductPricingData.WarehouseCostPerYear" class="form-control"> 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3">
+                                    <div class="form-group">
+                                        <label>Insurance cost of Warehouse</label>
+                                        <div class="input-group">
+                                            <input type="text" id="insurance-cost-warehouse" name="InsuranceCostForWarehousePerYear" ng-model="ProductPricingData.InsuranceCostForWarehousePerYear" class="form-control"> 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <label>&nbsp;</label>
+                                    <div class="action-group">
+                                        <button type="button" ng-click="saveProductPricing(FormProductPricing.$valid)" class="btn blue" ng-disabled="FormProductPricing.$invalid">Save</button><br><br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="portlet light">
+                        <form name="FormProductCosting" class="horizontal-form" method="post">
+                            <div class="portlet-body">
+                                <table class="table table-bordered border-color:black" id="product-pricing-table">
+                                    <thead>
+                                        <tr>
+                                            <th><h4> Item</h4></th>
+                                            <th><h4> Cost of Linen - CIF in USD</h4></th>
+                                            <th><h4> Wash Cost/ Linen</h4></th>
+                                            <th><h4> Last Updated At</h4></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="Item in ProductPricing">
+                                            <td width="300px">{{Item.ProductName}} - {{Item.VariantName}}</td>
+                                            <td type="text" id="CostOfLinenUSD" contenteditable='true' ng-blur="GetChangedData($index)" ng-model="CostOfLinenUSD[$index].Cost" ng-pattern="/^[1-9][0-9]{0,2}(?:,?[0-9]{3}){0,3}(?:\.[0-9]{1,5})?$/" name="CostOfLinenUSD" required>{{Item.TCLinen}}</td>
+                                            <td type="text" id="WashCostLinen" contenteditable='true' ng-blur="GetChangedData($index)" ng-model="WashCostLinen[$index].Wash" ng-pattern="/^[1-9][0-9]{0,2}(?:,?[0-9]{3}){0,3}(?:\.[0-9]{1,5})?$/" name="WashCostLinen" required>{{Item.WCLinen}}</td>
+                                            <td type="text" id="LastUpdatedAt" contenteditable='false' ng-model="LastUpdatedAt[$index].Updated" name="LastUpdatedAt">{{Item.CostModifiedAt}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="col-xs-12">
+                                <label>&nbsp;</label>
+                                    <div class="action-group">
+                                        <button id="save-btn" type="button" ng-click="saveProductCosting(FormProductCosting.$valid)" class="btn blue" ng-disabled="FormProductCosting.$invalid">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

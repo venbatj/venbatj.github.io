@@ -1,0 +1,167 @@
+<div class="portlet-body">
+    <div class="form-body">
+        <div class="row">
+            <!-- <div class="col-sm-12 col-md-5">
+                <table id="billing-details-data-table" class="table table-striped table-bordered table-hover dt-responsive" width="100%">
+                    <thead>
+                        <tr>
+                            <td class="check-box-column">
+                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" for="check-all-customer-billing-info">
+                                    <input type="checkbox" class="checkboxes check-all" value="1" ng-model="selectAll" id="check-all-customer-billing-info"/>
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td>Name</td>
+                            <td>Email</td>
+                            <td class="action-column">Edit</td>
+                        </tr>
+                    </thead>
+                </table>
+            </div> -->
+            <!-- <div class="col-sm-12 col-md-7"> -->
+                <form name="FormBillingInfo" id="form-billing-info" role="form" novalidate>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group" ng-class="{'has-error' : FormBillingInfo.FirstName.$invalid && FormBillingInfo.FirstName.$touched}">
+                                <label class="fld-required">First Name</label>
+                                <div class="input-group">
+                                    <input type="text" ng-disabled="disable" ng-model="BillingInfo.FirstName" name="FirstName" onkeydown="return /^[a-zA-Z\. ]*$/i.test(event.key)" class="form-control" required /> 
+                                    <p ng-show="FormBillingInfo.FirstName.$invalid && FormBillingInfo.FirstName.$touched" class="help-block">This field is required.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <div class="input-group">
+                                    <input type="text" ng-disabled="disable" ng-model="BillingInfo.LastName" name="LastName" onkeydown="return /^[a-zA-Z\. ]*$/i.test(event.key)" class="form-control" /> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group" ng-class="{ 'has-error' : FormBillingInfo.EmailID.$dirty && FormBillingInfo.EmailID.$error.pattern}">
+                                <label class="fld-required">Email</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="EmailID" ng-disabled="disable" ng-model="BillingInfo.EmailID" 
+                                    ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/">
+                                    <p ng-show="FormBillingInfo.EmailID.$dirty && FormBillingInfo.EmailID.$error.pattern" 
+                                    class="help-block">Please Enter Valid Email</p> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label class="fld-required">Location</label>
+                                <div class="input-group">
+                                    <select id="bill-location" name="LocationID" class="form-control select2" ng-disabled="disable" ng-model="BillingInfo.LocationID" ng-change="onBLocationChange(BillingInfo.LocationID)" required> 
+                                        <option value="{{CL.ID}}" ng-repeat="CL in LocationList">{{CL.LocationName}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-4">
+                            <div class="form-group" ng-if="!HideInviteBilling">
+                                <label>{{BISendInviteLabel}}</label>
+                                <div class="mt-radio-inline">
+                                    <label class="mt-radio">
+                                        <input type="radio" name="SendInvite" id="BCSendInviteY" value="Y" ng-model="BillingInfo.SendInvite" ng-click="BCSendInviteY(FormBillingInfo)" value="Y"> Yes
+                                        <span></span>
+                                    </label>
+                                    <label class="mt-radio">
+                                        <input type="radio" name="SendInvite" id="BCSendInviteN" value="N" ng-model="BillingInfo.SendInvite" ng-click="BCSendInviteN(FormBillingInfo)" value="N"> No
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>                        
+                        <div class="col-xs-12 col-md-8">
+                            <div class="form-group">
+                                <label>&nbsp;</label>
+                                <div class="action-group">
+                                    <button type="button" ng-click="saveBillingDetail(FormBillingInfo)" class="btn blue fa fa-save"ng-disabled="FormBillingInfo.$invalid"> Save</button>
+                                    <button type="button" ng-click="clearBillingDetail(FormBillingInfo)" class="btn green fa fa-close"> Clear</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div ng-if="BIShowErrorMsg" class="alert alert-danger">
+                                <button class="close" data-close="alert"></button>
+                                <span class="error-txt">{{BIErrorMsg}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" ng-show="Locationshow">
+                        <div class="col-xs-12 caption-right">
+                            <div class="form-group">
+                                <label id="bspacing"></label>
+                                <label id="blocation-name" name="LocationName"></label>
+                                <label id="bcoma1"></label>
+                                <label>&nbsp;</label>
+                                <label id="blocation-address" name="LocationAddress"></label>
+                                <label id="bcoma2"></label>
+                                <label>&nbsp;</label>
+                                <label id="blocation-city" name="LocationCity"></label>
+                                <label id="bcoma3"></label>
+                                <label>&nbsp;</label>
+                                <label id="blocation-state" name="LocationState"></label>
+                                <label id="bcoma4"></label>
+                                <label>&nbsp;</label>
+                                <label id="blocation-country" name="LocationCountry"></label>
+                                <label id="bcoma5"></label>
+                                <label>&nbsp;</label>
+                                <label id="blocation-phone" name="LocationPhone"></label>
+                                <label id="bcoma6"></label>
+                                <label>&nbsp;</label>
+                                <label id="blocation-zip" name="LocationZipcode"></label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            <!-- </div>                 -->
+        </div>
+    </div>
+</div>
+<div class="portlet-body">
+    <div class="form-body">
+        <div class="portlet light form-view mb-3" >
+            <div class="portlet-title">
+                <div class="caption">
+                    <h3 class="UserName">
+                        Billing Info
+                    </h3>
+                </div>					
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <table id="billing-details-data-table" class="table table-striped table-bordered table-hover dt-responsive" width="100%">
+                        <thead>
+                            <tr>
+                                <td class="check-box-column">
+                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" for="check-all-customer-billing-info">
+                                        <input type="checkbox" class="checkboxes check-all" value="1" ng-model="selectAll" id="check-all-customer-billing-info"/>
+                                        <span></span>
+                                    </label>
+                                </td>
+                                <td>Name</td>
+                                <td>Email</td>
+                                <td>Location</td>
+                                <td class="action-column">Edit</td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade in" id="billingInfo"  data-width="450">  
+    <div class="modal-header" style="background-color: #299d9d;">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="false"></button>
+        <h3><span class="modal-title custom-font-color">RNT - Customer Management</span></h3>
+    </div>
+    <div class="modal-header">
+        <p><h3>Billing Info - Saved Successfully</h3></p>
+    </div>
+</div>

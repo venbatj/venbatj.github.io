@@ -1,0 +1,89 @@
+<div class="ui-page inventory-report-page">
+    <form name="FormInventoryReport" role="form" novalidate>
+        <div class="portlet light mb-3">
+            <div class="portlet-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3><strong>Inventory Report</strong></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="portlet light mb-3">
+            <div class="form-body">
+                <div class ="row">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label>&nbsp;</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="form-group">
+                            <label class="fld-required">Category</label>
+                            <div class="input-group">
+                                <select id="category" name="Category" class="form-control select2" 
+                                ng-model="FormData.CategoryID" ng-change="onCategoryChange(FormData.CategoryID)" multiple="multiple" required> 
+                                    <option value="{{Category.ID}}" ng-repeat="Category in CategoryList">{{Category.CategoryName}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="form-group">
+                            <label class="fld-required">Product</label>
+                            <div class="input-group">
+                                <select id="product" name="Product" class="form-control select2" 
+                                ng-model="FormData.ProductID" ng-change="onProductChange(FormData.ProductID)" multiple="multiple" > 
+                                    <option value="{{Product.ID}}" ng-repeat="Product in ProductList">{{Product.ProductName}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="form-group">
+                            <label class="fld-required">Variant</label>
+                                <div class="input-group">
+                                    <select id="variant" name="Variant" class="form-control select2" ng-model="FormData.VariantID" 
+                                    ng-change="onVariantChange(FormData.ProductID, FormData.VariantID)" multiple="multiple" > 
+                                    <option value="{{Variant.VariantID}}" ng-repeat="Variant in VariantList">{{Variant.VariantName}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="top-control-bar">
+                            <div style="text-align: right;" class="action-group">
+                                <button type="button" ng-click="Search()" ng-disabled="FormInventoryReport.$invalid" class="btn green">Search</button>
+                                <button type="button" ng-click="ExportData()" ng-disabled="FormInventoryReport.$invalid" class="btn blue">Export</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="portlet light">
+            <div class="portlet-body">
+                <table id="inventory-details-data-table" class="table table-striped table-bordered table-hover dt-responsive" width="100%">
+                    <thead>
+                        <tr>
+                            <td class="check-box-column">
+                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" for="check-all-inventory-details">
+                                    <input type="checkbox" class="checkboxes check-all" value="1" id="check-all-inventory-details"/>
+                                    <span></span>
+                                </label>
+                            </td>
+                            <td>Inventory Move	</td>
+                            <td>Scanned Qty</td>
+                            <td>Manual Qty </td>
+                            <td>Identify Linen </td>
+                            <td>Action</td>
+                            <td>Customer</td>
+                            <td>Warehouse</td>
+                            <td class="action-column">Edit</td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>  
+    </form>
+</div>

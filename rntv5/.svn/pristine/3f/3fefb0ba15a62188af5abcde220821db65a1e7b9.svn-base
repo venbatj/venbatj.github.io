@@ -1,0 +1,156 @@
+<form name="CustomerBasicInfo" class="horizontal-form" method="post">
+	<div class="row">
+		<div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="form-group">
+                <label>Account Manager</label>
+                <div class="input-group">
+                    RATIS
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="form-group">
+                <label>Customer type</label>
+                <div class="input-group">
+                    RATIS
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="form-group">
+                <label># of Rooms</label>
+                <div class="input-group">
+                    RATIS
+                 </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="form-group">
+                <label>Star</label>
+                <div class="input-group ">
+                    RATIS
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="form-group">
+                <label>Average Occupancy Rate</label>
+                <div class="input-group">
+                    RATIS
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="form-group">
+                <label>Customer Name</label>
+                <div class="input-group">
+                    RATIS
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="form-group">
+                <label>Address</label>
+                <div class="input-group">
+                    RATIS
+                </div>
+            </div>
+        </div>   
+    	<div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="form-group">
+                <label>City</label>
+                <div class="input-group">
+                    RATIS
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="form-group">
+                <label>State</label>
+                <div class="input-group">
+                    RATIS
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="form-group">
+                <label>Country</label>
+                <div class="input-group">
+                    RATIS
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="form-group">
+                <label>Zip/ PIN/ PO Box</label>
+                <div class="input-group">
+                    RATIS
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="form-group">
+                <label>VAT/ GST/ Tax ID</label>
+                <div class="input-group">
+                    RATIS
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="form-group">
+                <label>Landline Number</label>
+                <div class="input-group">
+                    RATIS
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="form-group">
+                <label>Contact Name</label>
+                <div class="input-group">
+                    RATIS
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="form-group">
+                <label>Contact Phone</label>
+                <div class="input-group">
+                    RATIS
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="form-group">
+                <label>Contact Email</label>
+                <div class="input-group">
+                    RATIS
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="form-group">
+                <label>Currency</label>
+                <div class="input-group">
+                    RATIS
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="form-group">
+                <label>Customer Logo/ Image</label>
+                <div class="input-group">
+                     <button class="btn blue">View</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

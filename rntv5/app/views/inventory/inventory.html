@@ -1,0 +1,229 @@
+<div class="ui-page">
+    <div class="portlet light mb-3">
+        <!-- <div class="portlet-body"> -->
+            <div class="row">
+                <div class ="col-md-12">
+                    <h3><strong>Inventory</strong></h3>
+                </div>
+            </div>
+        <!-- </div> -->
+    </div>
+<!-- <div class="ui-page"> -->
+<div class="portlet light mb-3">
+    <div class="portlet-title">
+        <div class="portlet-body ">
+            <div class="form-body">
+                <div class ="row"  >
+                    <div class="col-xs-12 col-sm-4 col-md-2">
+                        <div class="form-group">
+                            <label>Barcode & QR code</label>
+                                <div class="input-group">
+                                <input type="text" class="form-control" required ng-model="SubFormData.Barcode">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-2">
+                        <div class="form-group">
+                            <label>Complete life cycle of the linen</label>
+                                <div class="input-group">
+                                <input type="text" class="form-control" required ng-model="SubFormData.linen">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-2">
+                        <div class="form-group">
+                            <label>Customer Inventory View</label>
+                            <div class="input-group">
+                                <select id="Customer" name="Customer" class="form-control select2" 
+                                ng-model="SubFormData.CustomerID" ng-change="onCustomerChange(SubFormData.ProductID, SubFormData.CustomerID)"> 
+                                    <option value="{{Customer.CustomerID}}" ng-repeat="Customer in CustomerList">{{Customer}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-2">
+                        <div class="form-group">
+                            <label>Warehouse Inventory View</label>
+                            <div class="input-group">
+                                <select id="Warehouse" name="Warehouse" class="form-control select2" 
+                                ng-model="SubFormData.WarehouseID" ng-change="onWarehouseChange(SubFormData.ProductID, SubFormData.WarehouseID)"> 
+                                    <option value="{{Warehouse.WarehouseID}}" ng-repeat="Warehouse in WarehouseList">{{Warehouse}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3 col-sm-2">
+                        <div class="form-group">
+                            <label>EOL</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" required ng-model="SubFormData.QtyWarehouseRequired">
+                                </div>
+                            </div>
+                        </div>
+                    <div class="col-xs-3 col-sm-2">
+                    <div class="form-group">
+                        <label>Soil</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" required ng-model="SubFormData.QtyByWarehouseRequired">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3 col-sm-2">
+                        <div class="form-group">
+                            <label>Laundry</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" required ng-model="SubFormData.QtyOrderRequired">
+                                </div>
+                            </div>
+                        </div>
+                    <div class="col-xs-3 col-sm-2">
+                    <div class="form-group">
+                        <label>Short term</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" required ng-model="SubFormData.QtyOrderRequired">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3 col-sm-2">
+                        <div class="form-group">
+                            <label>Ton</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" required ng-model="SubFormData.QtyOrderRequired">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 ">
+                            <div class="form-group" align="right" class="input-group">
+                                <button type="button"  class="btn blue" ng-click="addItem()">Add Item</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>					
+            </div>
+        </div>
+        <div class="portlet light mb-3">
+            <div class="row">
+                <h3><strong>Feedback</strong></h3>
+                </div>
+            </div>
+        </div>
+        <div class="portlet light mb-3">
+            <div style="text-align: right;">
+                <label> Source:</label>
+                <input type="text" name="RentAtowel"> <br>
+                <label> Destination:</label>
+                <input type="text" name="RentAtowel"> 
+            </div> 
+            <form name="FormFeedback" class="horizontal-form" method="post">
+                <div class="portlet-body">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-3">
+                                <div class="form-group" ng-class="{'has-error' : !FormFeedback.RentAtowel.$valid}">
+                                    <label> Life of Linen is if cross 180 days</label>
+                                    <div class="input-group">
+                                        <textarea class="form-control" name="RentAtowel" ng-model="Feedback.RentAtowel" ng-maxlength="250"> </textarea>
+                                        <p ng-if="!FormFeedback.RentAtowel.$valid" class="help-block">The value is too long</p>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group" ng-class="{'has-error' : !FormFeedback.Laundry.$valid}">
+                                <label>    icons with running # for the life of linen</label>
+                                <div class="input-group">
+                                    <textarea class="form-control" name="Laundry" ng-model="Feedback.Laundry" ng-maxlength="250"> </textarea>
+                                    <p ng-if="!FormFeedback.Laundry.$valid" class="help-block">The value is too long</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <!-- <label>&nbsp;</label> -->
+                                <div class="action-group">
+                                    <button type="button" ng-click="saveFeedback(FormFeedback)" class="btn blue" ng-disabled="FormFeedback.$invalid">Submit</button>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+            </div>  
+            </form>
+        </div>
+        <div class="portlet light mb-3">
+            <div class="portlet-body">
+                <div class="form-body">
+                    <div class="row">
+        <div class="portlet light mb-3">
+                        
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group" ng-class="{'has-error' : FormFeedback.DeliveryManager.$invalid && FormFeedback.DeliveryManager.$touched}">
+                                <label>Dashboard (Email, Content)</label>
+                                <div class="input-group">
+                                    <select id="delivery-manager" name="DeliveryManager" class="form-control select2" required
+                                    ng-model="Feedback.DeliveryManager" ng-change="onDeliveryManagerChange(Dm.DeliveryManager)"> 
+                                        <option value="{{Dm.ID}}" ng-repeat="Dm in DeliveryManagerList">{{Dm.FirstName}}</option>
+                                    </select>
+                                    <p ng-show="FormFeedback.DeliveryManager.$invalid && FormFeedback.DeliveryManager.$touched" class="help-block">This field is required.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group" ng-class="{'has-error' : FormFeedback.Reports.$invalid && FormFeedback.Reports.$touched}">
+                                <label>Reports</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="Reports" ng-model="Feedback.Reports"  required> 
+                                    <p ng-show="FormFeedback.Reports.$invalid && FormFeedback.Reports.$touched" class="help-block">This field is required.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label> OS tickets</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" ng-model="Feedback.tickets"> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3">
+                            <div class="form-group">
+                                <label> Back end admin</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" ng-model="Feedback.Backendadmin"> 
+                                </div>
+                            </div>
+                        </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="form-group">
+                            <label> Finance admin</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" ng-model="Feedback.Financeadmin"> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="form-group">
+                            <label> System admin</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" ng-model="Feedback.Systemadmin"> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="form-group">
+                            <label>Management admin</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" ng-model="Feedback.Managementadmin"> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <div class="action-group">
+                            <button type="button" ng-click="saveLaundryDetail(FormFeedback.$valid)" class="btn blue" ng-disabled="FormFeedback.$invalid">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div> 		
+    </form>
+</div>

@@ -1,0 +1,40 @@
+<div class="ui-page compact">
+    <div class="portlet light mb-3">
+        <div class="portlet-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="top-control-bar">
+                        <h3>
+                            <button ng-click="BackIndexPage()" class="btn blue fa fa-reply-all"> Back</button>
+                            <strong>Linen Supplier Management</strong></h3>
+                            <div class="action-group">
+                                <button type="button" ng-click="importLinen()" class="btn green fa fa-arrow-circle-down"> Import Linen Supplier</button>
+                                <button type="button" ng-click="openAddPage()" class="btn blue fa fa-user-plus"> Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="portlet light">
+        <div class="portlet-body">
+            <table id="linen-management-data-table" class="table table-striped table-bordered table-hover dt-responsive" width="100%">
+                <thead>
+                    <tr>
+                        <td class="check-box-column">
+                            <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" for="check-all-linen-details">
+                                <input type="checkbox" class="checkboxes check-all" value="1" id="check-all-linen-details"/>
+                            <span></span>
+                        </label>
+                        </td>
+                        <td>Linen Supplier</td>
+                        <td>City</td>
+                        <td>Country</td>
+                        <td>Status</td>
+                        <td class="action-column" >Action</td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>  
+</div>

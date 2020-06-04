@@ -1,0 +1,103 @@
+<div class="ui-page">
+    <form name="FrmSales" role="form" novalidate>
+        <div class="portlet light mb-3">
+            <div class="portlet-body">
+                <div class="row" >
+                    <div class="col-md-12">
+                        <h3><strong>Sales Management</strong></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="portlet light mb-3" id="sales-index">
+            <div class="portlet-body">
+                <div class="form-body">
+                    <div class="row" id="rowinventory">
+                        <div class="col-md-4 newcustomer" id="prospecty">
+                            <h4 id="head"><b>Generate a New Quote</b></h4><br>
+                            <center><label ng-click="ViewNewquotePage()"><b><a><u id="linenlink">Click here to Create a New Quote</u></a></b> 
+                            <!-- <i class="fa fa-archive fa-2x plus-cust"  id="link" ng-click="ViewNewquotePage()"></i> -->
+                            </label></center>
+                        </div>
+                        <div class="col-md-4 newcustomer" id="newcust">
+                            <h4 id="head"><b> View/Edit Existing Quote</b></h4>
+                            <div class="col-xs-6 allignment">
+                                <div class="form-group">
+                                    <label></label>
+                                    <div class="input-group">
+                                        <select id="Quote-id" name="QuoteCustomerName" class="form-control select2 allignment"
+                                        ng-disabled="disable" ng-model="FormData.QuoteCustomerName" ng-change="onSalesChange(FormData.QuoteCustomerName)"> 
+                                        <option value="{{QG.ID}}" ng-repeat="QG in QuoteList">{{QG.CustomerName}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 allignment">
+                                <label><b></b></label>
+                                <div class="input-group">
+                                    <select id="prospect-id" name="ProspectCustomerName" class="form-control select2 allignment"
+                                    ng-disabled="disable" ng-model="FormData.ProspectCustomerName" ng-change="onProspectChange(FormData.ProspectCustomerName)"> 
+                                    <option value="{{QG.ID}}" ng-repeat="QG in ProspectList">{{QG.CustomerName}}</option>
+                                    </select>
+                                </div>
+                            </div>  
+                        </div>
+                        <!-- <div class="col-md-4 newcustomer" id="exist">
+                            <h4 id="head"><b>View Prospect/Quote</b></h4> -->
+                            <!-- <center><label ng-click="ViewProspect()"><b><a><u id="linenlink"> Prospect</u></a></b>  -->
+                            <!-- <i class="fa fa-archive fa-2x plus-cust"  id="link" ng-click="ViewNewquotePage()"></i> -->
+                            <!-- </label></center> -->
+                            <!-- <div class="col-xs-12 allignment">
+                                <label><b></b></label>
+                                <div class="input-group">
+                                    <select id="prospect-id" name="ProspectCustomerName" class="form-control select2 allignment"
+                                    ng-disabled="disable" ng-model="FormData.ProspectCustomerName" ng-change="onProspectChange(FormData.ProspectCustomerName)"> 
+                                    <option value="{{QG.ID}}" ng-repeat="QG in ProspectList">{{QG.CustomerName}}</option>
+                                    </select>
+                                </div>
+                            </div>  
+                        </div> -->
+                        <div class="col-md-4 newcustomer" id="exist">
+                            <h4 id="head"><b>Collateral</b></h4><br />
+                            <center><label ng-click="ViewCollateral()"><b><a><u id="linenlink"> Collateral</u></a></b> 
+                            <!-- <i class="fa fa-archive fa-2x plus-cust"  id="link" ng-click="ViewNewquotePage()"></i> -->
+                            </label></center>
+                        </div>
+                        <!-- <div class="col-md-4 newcustomer" id="excel">
+                            <h4 id="head"><b>View/Edit Sales List</b></h4><br />
+                            <div class="col-xs-10 col-sm-5">
+                                <div class="form-group" ng-class="{'has-error' : FormBasicDetail.SalesTypeID.$invalid && FormBasicDetail.SalesTypeID.$touched}">
+                                    <div class="input-group">
+                                        <select id="sales-type" name="SalesTypeID" ng-model="BasicDetail.SalesTypeID" 
+                                        ng-change="onListingChange2();ContractTypeChange(BasicDetail.SalesTypeID)" class="form-control select2" required> 
+                                            <option></option>
+                                            <option value="ContractAll2">All</option>
+                                            <option value="{{Cs.ID}}" ng-repeat="Cs in SalesTypeList" >{{Cs.SalesType}}</option>
+                                            <p ng-show="FormBasicDetail.SalesTypeID.$invalid && FormBasicDetail.SalesTypeID.$touched" class="help-block">This field is required.</p> 
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-10 col-sm-5">
+                                <div class="form-group" ng-class="{'has-error' : FormBasicDetail.AccountManager.$invalid && FormBasicDetail.AccountManager.$touched}">
+                                    <div class="input-group">
+                                        <select id="acc-manager" name="AccountManager" class="form-control select2" required
+                                        ng-model="BasicDetail.AccountManager" ng-change="onListingChange1();ContractTypeChange(BasicDetail.AccountManager)"> 
+                                            <option></option>
+                                            <option value="ContractAll1">All</option>
+                                            <option value="{{Ct.ID}}" ng-repeat="Ct in AccountManagerList">{{Ct.FirstName}}</option>
+                                        <p ng-show="FormBasicDetail.AccountManager.$invalid && FormBasicDetail.AccountManager.$touched" class="help-block">This field is required.</p>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="icony fa fa-search fa-2x searchbtn" ng-click="Search()" tooltip="Search"></a>
+                        </div> -->
+                        <!-- <div class="col-md-4 newcustomer" id="empty"></div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>

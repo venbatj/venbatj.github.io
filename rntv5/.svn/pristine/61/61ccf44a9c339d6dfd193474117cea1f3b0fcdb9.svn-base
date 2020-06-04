@@ -1,0 +1,85 @@
+<div class="ui-page">
+    <div class="portlet light mb-3">
+        <div class="portlet-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3><strong>Currency</strong></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="portlet light">
+        <div class="portlet-body">            
+            <div class="row">
+                <div class="col-xs-12 col-md-9">
+                    <table id="currency-data-table" class="table table-striped table-bordered table-hover dt-responsive" width="100%">
+                        <thead>
+                            <tr>
+                                <td class="check-box-column">
+                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" for="check-all-currency">
+                                        <input type="checkbox" class="checkboxes check-all" value="1" id="check-all-currency"/>
+                                        <span></span>
+                                    </label>
+                                </td>
+                                <td>Currency</td>
+                                <td>Code</td>
+                                <td>Exchange Rate</td>
+                                <td>Exchange Rate Modified At</td>
+                                <td class="action-column">Edit</td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="col-xs-12 col-md-3">
+                    <form name="FormCurrency" role="form" novalidate>
+                        <div class="form-body">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group" ng-class="{'has-error' : FormCurrency.CurrencyName.$invalid && FormCurrency.CurrencyName.$touched}">
+                                        <label class="fld-required">Currency Name</label>
+                                        <div class="input-group">
+                                            <input ng-model="FormData.CurrencyName" name="CurrencyName" type="text" class="form-control" required />
+                                            <p ng-show="FormCurrency.CurrencyName.$invalid && FormCurrency.CurrencyName.$touched" class="help-block">This field is required.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="form-group" ng-class="{'has-error' : FormCurrency.Code.$invalid && FormCurrency.Code.$touched}">
+                                        <label class="fld-required">Code</label>
+                                        <div class="input-group">
+                                            <input ng-model="FormData.Code" name="Code" type="text" class="form-control" required />
+                                            <p ng-show="FormCurrency.Code.$invalid && FormCurrency.Code.$touched" class="help-block">This field is required.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="form-group" ng-class="{'has-error' : FormCurrency.ExchangeRate.$invalid && FormCurrency.ExchangeRate.$touched}">
+                                        <label class="fld-required">Exchange Rate</label>
+                                        <div class="input-group">
+                                            <input ng-model="FormData.ExchangeRate" name="ExchangeRate" type="text" class="form-control" required 
+                                            oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');"/>
+                                            <p ng-show="FormCurrency.ExchangeRate.$invalid && FormCurrency.ExchangeRate.$touched" class="help-block">This field is required.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label>&nbsp;</label>
+                                        <div class="action-group">
+                                            <button type="submit" ng-click="formSubmit(FormCurrency.$valid)" class="btn blue" ng-disabled="FormCurrency.$invalid">Save</button>
+                                            <button type="button" ng-click="formClear()" class="btn green">Clear</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-if="ShowErrorMsg" class="alert alert-danger">
+                            <button class="close" data-close="alert"></button>
+                            <span class="error-txt">{{ErrorMsg}}</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
