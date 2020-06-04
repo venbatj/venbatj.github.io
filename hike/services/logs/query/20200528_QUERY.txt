@@ -1,5 +1,0 @@
-
-2020-05-28 05:12:45 || SELECT ID, EmailID, LastLogin FROM rnt_Login WHERE (EmailID = 'admin@mail.com') AND (CONVERT(AES_DECRYPT(Password, 'RNT2018') USING 'utf8') = 'welcome') AND (Flag != 'R') LIMIT 0, 1
-2020-05-28 05:12:45 || SELECT LoginID, FirstName, LastName, Phone FROM rnt_User WHERE (LoginID = '1') LIMIT 0, 1
-2020-05-28 05:12:45 || SHOW COLUMNS FROM `rnt_Login` FROM `rntv5_dev`
-2020-05-28 05:12:45 || UPDATE rnt_Login SET LastLogin = '2020-05-28 05:12:45', Modified = '2020-05-28 05:12:45' WHERE (ID = '1')
