@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+    <head>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
+    <link data-require="bootstrap@4.0.5" data-semver="4.0.5" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
+    <link data-require="bootstrap-material-design@4.0.2" data-semver="4.0.2" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/css/bootstrap-material-design.css" />
+    <link data-require="bootstrap-material-design@4.0.2" data-semver="4.0.2" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/css/ripples.css" />
+    <link data-require="angular-screenshot@0.1.1" data-semver="0.1.1" rel="stylesheet" href="https://cdn.rawgit.com/weihanchen/angular-screenshot/df72febb/build/angular-screenshot.min.css" />
+
+    <script data-require="jquery@3.1.1" data-semver="3.1.1" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script data-require="bootstrap-material-design@4.0.2" data-semver="4.0.2" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/material.js"></script>
+    <script data-require="bootstrap-material-design@4.0.2" data-semver="4.0.2" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/ripples.js"></script>
+    <script data-require="angular.js@1.6.2" data-semver="1.6.2" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.js"></script>
+    <script data-require="angular-screenshot@0.1.1" data-semver="0.1.1" src="https://cdn.rawgit.com/weihanchen/angular-screenshot/3e0c1bc7/build/angular-screenshot.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script><!-- Usernoise code -->
+    <!-- All the code is set up to work with Usernoise uploaded to /usernoise  -->
+    
+    <!-- Include jQuery if not included yet -->
+    <!-- Can be omitted if you already have jQuery loaded -->
+    <!--  Usernoise itself -->
+        <link rel='stylesheet' id='usernoise-button-css'  href='/usernoise/usernoise/css/usernoise.css' type='text/css' media='all' />
+        <script type='text/javascript'>
+    //   <!-- This data is used to configure Usernoise during bootstrap -->
+        /* <![CDATA[ */
+        var usernoise = {
+        "i18n": { // Edit the strings below if you want to translate Usernoise
+            "Leave a feedback": "Feedback",
+            "Enter your feedback here": "Enter your feedback here",
+            "Next": "Next",
+            "Taking screenshot": "Taking screenshot",
+            "Take a screenshot": "Take a screenshot",
+            "screenshot.png": "screenshot.png",
+            "Cancel": "Cancel",
+            "Add some details": "Details",
+            "Back": "Back",
+            "Submit": "Submit",
+            "Submitting": "Submitting",
+            "Error sending feedback": "Error sending feedback",
+            "Close": "Close",
+            "OKText": "Your feedback was submitted successfully",
+            "Done": "Done",
+            "Please enter a valid email address": "Please enter a valid email address",
+            "This field is required": "This field is required"
+        },
+        "config": {
+            "button": {
+                "enabled": true,
+                "disableOnMobiles": false, // If the button should be disabled on small screen devices
+                "text": "Feedback", // Button text
+                "style": "background-color: #404040; color: #FFFFFF", // Button CSS style
+                "class": "un-left" // Button class. Available ones are un-left, un-right, un-bottom, un-top
+            },
+    
+            // Usernoise URLs. Please only change if you know what you're doing
+            "urls": {
+                "feedback": {post: "/usernoise/usernoise/send.php"},
+                "usernoise": "/usernoise/usernoise/",
+                "html2canvasproxy": "/usernoise/usernoise/proxy.php"
+            },
+            screenshot: {enable: true},
+            // Form fields
+            "form": {
+                "fields": {
+                    "email": {
+                        "type": "email", // Available types - text, email, dropdown
+                        "label": "Email address", //label displayed next to the field
+                        "placeholder": "you@example.com", // Placeholder displayed by default
+                        "validators": ["email"] // Validator rules applied. Available ones - 'email', 'presence'
+                    },
+                    "summary": {
+                        "type": "text",
+                        "label": "Summary",
+                        "placeholder": "Short summary",
+                        "validators": ["required"]
+                    },
+                    "type": {
+                        "type": "dropdown",
+                        "label": "Feedback type",
+                        "default": null,
+                        "default_text": "Please select", // Text displayed when no value is selected
+                        "options": { // Option definitions
+                            "idea": "Idea",
+                            "question": "Question",
+                            "problem": "Problem",
+                            "praise": "Praise"
+                        },
+                        "validators": ['required']
+                    },
+                    "mood": {
+                        type: "dropdown",
+                        label: 'How are you feeling?',
+                        default: null,
+                        default_text: 'Please select',
+                        "options": {
+                        "excited": "Excited!",
+                        "happy": "Happy",
+                        "confused": "Confused",
+                        "worried": "Worried",
+                        "frustrated": "Frustrated",
+                        "angry": "Angry"
+                        },
+                        "validators": ['required']
+    
+                    }
+    
+                }
+            },
+        },
+    };
+    /* ]]> */
+    </script>
+    <script type='text/javascript' src='/usernoise/usernoise/js/usernoise.js'></script>
+    <!-- end of Usernoise code -->
+    
+    </head>
+    <body ng-controller="AppController as appCtrl">
+    <div class="row">
+        <div class="col-md-12">
+        <div class="jumbotron">
+            <h3>Basic</h3>
+            <screenshot is-open="appCtrl.isBasicOpen">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="btn-group-sm pull-right">
+                        <button class="btn btn-fab" ng-class="{true: 'btn-danger', false: 'btn-default'}[appCtrl.isBasicOpen]" ng-click="appCtrl.isBasicOpen = !appCtrl.isBasicOpen">
+                            <i ng-if="!appCtrl.isBasicOpen" class="material-icons">crop</i>
+                            <i ng-if="appCtrl.isBasicOpen" class="material-icons">close</i>
+                        </button>
+                        </div>
+                    </div>
+                    <div class="panel-body white-bg">
+                    Enthusiasm is one of the most powerful engines of success. When you do a thing, do it with your might. Put your whole soul into it. Stamp it with your own personality.
+                    </div>
+                </div>
+            </screenshot>
+            <hr />
+        </div>
+        </div>
+    </div>
+    </body>
+</html>
